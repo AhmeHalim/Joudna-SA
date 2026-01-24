@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Dashboard\About\AboutController;
-use App\Http\Controllers\Dashboard\About\AboutValueController;
+use app\Http\Controllers\Dashboard\About\AboutController;
+use app\Http\Controllers\Dashboard\About\AboutValueController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('edit/about', [AboutController::class,'edit'])->name('about.edit');

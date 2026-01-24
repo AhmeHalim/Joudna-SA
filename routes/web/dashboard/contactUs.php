@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Dashboard\ContactUs\ContactUsController;
+use app\Http\Controllers\Dashboard\ContactUs\ContactUsController;
 use Illuminate\Support\Facades\Route;
 
 Route::resource('contact-us', ContactUsController::class )->parameters([

@@ -1,5 +1,6 @@
 <?php
-use App\Http\Controllers\Dashboard\Setting\SettingController;
+
+use app\Http\Controllers\Dashboard\Setting\SettingController;
 use Illuminate\Support\Facades\Route;
 
 

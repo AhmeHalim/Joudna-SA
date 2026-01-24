@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Dashboard\Menu\MenuController;
-use App\Http\Controllers\Dashboard\Menu\MenuItemController;
+use app\Http\Controllers\Dashboard\Menu\MenuController;
+use app\Http\Controllers\Dashboard\Menu\MenuItemController;
 use Illuminate\Support\Facades\Route;
 
 

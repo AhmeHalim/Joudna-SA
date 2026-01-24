@@ -1,0 +1,27 @@
+<?php
+
+namespace app\Models\Dashboard\Album;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class AlbumVideo extends Model
+{
+
+    use HasFactory;
+    //use softDeletes;
+
+    protected $table = 'album_videos';
+
+    protected $fillable = [
+        'video_url',
+        'album_id',
+        'status',
+        'order'
+    ];
+
+    public function album(){
+        return $this->belongsTo(Album::class);
+    }
+
+}

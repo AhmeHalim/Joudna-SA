@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\WebSite\HomeController;
+use app\Http\Controllers\WebSite\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('website.')->group(function () {

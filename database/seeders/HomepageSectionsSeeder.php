@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
+use app\Models\Dashboard\Setting\HomepageSection;
 use Illuminate\Database\Seeder;
-use App\Models\Dashboard\Setting\HomepageSection;
 
 class HomepageSectionsSeeder extends Seeder
 {

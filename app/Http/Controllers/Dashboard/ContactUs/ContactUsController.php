@@ -1,0 +1,28 @@
+<?php
+
+namespace app\Http\Controllers\Dashboard\ContactUs;
+
+use app\Http\Controllers\Controller;
+use app\Models\Dashboard\ContactUs\ContactUs;
+use Illuminate\Http\Request;
+
+class ContactUsController extends Controller
+{
+    public function index(Request $request)
+    {
+        $messages_query = ContactUs::orderByDesc('id');
+        if(isset($request->status) &&in_array($request->status,[0,1])){
+            $messages_query =$messages_query->where('seen',$request->status);
+        }
+        $messages = $messages_query->get();
+        return view('Dashboard.ContactUs.index', compact('messages'));
+    }
+    public function show(ContactUs $contactUs){
+        $contactUs->update(['seen'=>1]);
+        return back()->with('success',__('dash.your_item_updated_successfully'));
+    }
+    public function destroy(ContactUs $contactUs){
+        $contactUs->delete();
+        return response()->json(['success' => true, 'message' => trans('messages.your_items_deleted_successfully')]);
+    }
+}

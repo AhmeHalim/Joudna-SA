@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Dashboard\Album\AlbumController;
-use App\Http\Controllers\Dashboard\Album\AlbumImageController;
-use App\Http\Controllers\Dashboard\Album\AlbumVideoController;
+use app\Http\Controllers\Dashboard\Album\AlbumController;
+use app\Http\Controllers\Dashboard\Album\AlbumImageController;
+use app\Http\Controllers\Dashboard\Album\AlbumVideoController;
 use Illuminate\Support\Facades\Route;
 
 Route::resource('albums', AlbumController::class);

@@ -125,10 +125,10 @@ return [
 
     'aliases' => [
         // Other aliases
-        'Path' => App\Helper\Path::class,
+        'Path' => \app\Helper\Path::class,
         'Route' => Illuminate\Support\Facades\Route::class,
-        'Media' => App\Helper\Media::class,
-        'WebsiteHelper'=>App\Helper\WebsiteHelper::class,
+        'Media' => \app\Helper\Media::class,
+        'WebsiteHelper'=> \app\Helper\WebsiteHelper::class,
         'PDF' => Barryvdh\DomPDF\Facade\Pdf::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],

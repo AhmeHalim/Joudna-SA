@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Middleware\IsAdminMiddleware;
+use app\Http\Middleware\IsAdminMiddleware;
 use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;

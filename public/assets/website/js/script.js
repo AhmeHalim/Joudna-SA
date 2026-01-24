@@ -438,6 +438,10 @@
         quote.animation.progress(1).kill();
         quote.split.revert();
       }
+      if (getComputedStyle(quote).direction === "rtl") {
+      return;
+    }
+
 
       var getclass = quote.closest(".sec-title-animation").className;
       var animation = getclass.split("animation-");

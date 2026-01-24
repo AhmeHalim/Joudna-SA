@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Dashboard\Course\Field;
-use App\Models\Dashboard\Menu\Menu;
+use app\Models\Dashboard\Menu\Menu;
 use Illuminate\Database\Seeder;
 
 class MenuSeeder extends Seeder
