@@ -33,8 +33,8 @@ class HomepageSectionsSeeder extends Seeder
             [
                 'order' => '3',
                 'title' => [
-                    'en' => 'services',
-                    'ar' => 'الخدمات',
+                    'en' => 'statistics',
+                    'ar' => 'الاحصائيات والارقام',
                 ],
                 'image' => '',
                 'alt_image' => '',
@@ -44,28 +44,19 @@ class HomepageSectionsSeeder extends Seeder
             [
                 'order' => '4',
                 'title' => [
-                    'en' => 'projects',
-                    'ar' => 'المشاريع',
+                    'en' => 'home_menu',
+                    'ar' => 'قائمة الصفحة الرئيسية',
                 ],
                 'image' => '',
                 'alt_image' => '',
                 'is_active' => true,
             ],
+
             [
                 'order' => '5',
                 'title' => [
-                    'en' => 'our_speciality',
-                    'ar' => 'تخصصاتنا',
-                ],
-                'image' => '',
-                'alt_image' => '',
-                'is_active' => true,
-            ],
-            [
-                'order' => '6',
-                'title' => [
-                    'en' => 'statistics',
-                    'ar' => 'الاحصائيات والارقام',
+                    'en' => 'contact_us',
+                    'ar' => 'تواصل معنا',
                 ],
                 'image' => '',
                 'alt_image' => '',
@@ -93,16 +84,7 @@ class HomepageSectionsSeeder extends Seeder
                 'is_active' => true,
             ],
 
-            [
-                'order' => '9',
-                'title' => [
-                    'en' => 'contact_us',
-                    'ar' => 'تواصل معنا',
-                ],
-                'image' => '',
-                'alt_image' => '',
-                'is_active' => true,
-            ],
+
 
 
         ];

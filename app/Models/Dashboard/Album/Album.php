@@ -17,9 +17,6 @@ class Album extends Model
 
     const ALBUMTYPES = [
         'general'=>'general',
-        'about_album'=>'about_album',
-        'projects'=>'projects',
-        'services'=>'services',
     ];
 
     protected $table = 'albums';
@@ -29,6 +26,7 @@ class Album extends Model
         'alt_image',
         'album_id',
         'status',
+        'album_type',
         'type',
         'type_value_id'
     ];

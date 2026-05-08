@@ -6,6 +6,16 @@
         <!--begin::Aside column-->
         <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
 
+            <x-dashboard.partials.html.image_input
+                :title="'Upload video Cover'"
+                :name="'image'"
+                :description="'Only *.png, *.jpg, and *.jpeg image files are accepted.'"
+                :changeImageText="'Change Image'"
+                :cancelImageText="'Cancel Image'"
+                :removeImageText="'Remove Image'"
+                :acceptedText="'image files are accepted'"
+            />
+
             <!--begin::Status-->
             <x-dashboard.partials.html.status_select
                 :model="'lesson'"
@@ -89,6 +99,7 @@
                         <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable sortable" id="kt_ecommerce_category_table" style="width: 100%;">
                             <thead>
                             <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
+                                <th class="min-w-250px">@lang('dash.video_cover')</th>
                                 <th class="min-w-250px">@lang('dash.video')</th>
                                 <th class="min-w-100px">@lang('dash.order')</th>
                                 <th class="min-w-150px">@lang('dash.status')</th>
@@ -98,6 +109,9 @@
                             <tbody class="fw-semibold text-gray-600">
                             @foreach($album->videos as $key=>$video)
                                 <tr id="image-{{ $video->id }}" data-id="{{ $video->id }}" class="image">
+                                    <td>
+                                        <img src="{{WebsiteHelper::getImage('album_videos_cover', $video->image )}}" width="140" height="140"/>
+                                    </td>
                                     <td>
                                         <div class="d-flex">
                                             <div class="symbol symbol-175px">

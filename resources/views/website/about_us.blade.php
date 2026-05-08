@@ -13,5 +13,5 @@
 
     @include('website.partials.homeSections.about')
     @include('website.partials.homeSections.statistics')
-    @include('website.partials.homeSections.our_speciality')
+    @include('website.partials.homeSections.missions_and_visions')
 @endsection

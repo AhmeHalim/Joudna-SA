@@ -24,6 +24,7 @@ class AlbumService
             // Add other non-translatable fields here
             $data = [
                 'status' => $dataValidated['status'],
+                'album_type' => $dataValidated['album_type'],
                 'type' => $dataValidated['type'],
                 'type_value_id' => $dataValidated['type_value_id']??null,
             ];
@@ -45,10 +46,13 @@ class AlbumService
     public function update($request, $dataValidated, $album){
         DB::beginTransaction();
 
+        //dd($dataValidated);
+
         try {
             // Update the category data (status, index, etc.)
             $data = [
                 'status' => $dataValidated['status'],
+                'album_type' => $dataValidated['album_type'],
                 'type' => $dataValidated['type'],
                 'type_value_id' => $dataValidated['type_value_id']??null,
             ];

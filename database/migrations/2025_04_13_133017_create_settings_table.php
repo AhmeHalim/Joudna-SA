@@ -42,12 +42,6 @@ return new class extends Migration
             $table->string('mail_username', 100)->nullable();
             $table->string('mail_password', 100)->nullable();
 
-            //sms settings//
-            $table->string('sms_sender_name')->nullable();
-            $table->string('sms_app_id')->nullable();
-            $table->string('sms_app_sec')->nullable();
-            $table->string('sms_provider')->nullable();
-            $table->string('sms_user_name')->nullable();
 
             // Social media
             $table->text('facebook_address')->nullable();

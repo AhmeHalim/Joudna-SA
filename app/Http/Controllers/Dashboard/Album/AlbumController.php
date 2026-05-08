@@ -7,8 +7,8 @@ use app\Http\Controllers\Controller;
 use app\Http\Requests\Dashboard\Albums\AlbumRequest;
 use app\Models\Dashboard\Album\Album;
 use App\Models\Dashboard\Course\Course;
-use app\Models\Dashboard\Project\Project;
-use app\Models\Dashboard\Service\Service;
+use app\Models\Dashboard\Project\item;
+use app\Models\Dashboard\Service\Category;
 use app\Services\Dashboard\Album\AlbumService;
 use Illuminate\Http\Request;
 
@@ -147,11 +147,11 @@ class AlbumController extends Controller
         $values = [];
 
         if($type == 'services'){
-            $values = Service::select('id','name')->get();
+            $values = Category::select('id','name')->get();
         }
 
         if($type == 'projects'){
-            $values = Project::select('id','name')->get();
+            $values = item::select('id','name')->get();
         }
         // add here any new model you want//
 

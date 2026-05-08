@@ -1,26 +1,35 @@
-<script src="{{ WebsiteHelper::getAsset('js/jquery-3.6.0.min.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/jarallax.min.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/jquery.ajaxchimp.min.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/jquery.appear.min.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/swiper.min.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/jquery.circle-progress.min.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/isotope.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/jquery.validate.min.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/wNumb.min.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/wow.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/owl.carousel.min.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/jquery-ui.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/odometer.min.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/jquery.nice-select.min.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/jquery-sidebar-content.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/gsap/gsap.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/gsap/ScrollTrigger.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/gsap/SplitText.js') }}"></script>
-<script src="{{ WebsiteHelper::getAsset('js/aos.js') }}"></script>
+<!-- Jquery Library File -->
+<script src="{{ WebsiteHelper::getAsset('js/jquery-3.7.1.min.js')}}"></script>
+<!-- Bootstrap js file -->
+<script src="{{ WebsiteHelper::getAsset('js/bootstrap.min.js') }}"></script>
+<!-- Validator js file -->
+<script src="{{ WebsiteHelper::getAsset('js/validator.min.js') }}"></script>
+<!-- SlickNav js file -->
+<script src="{{ WebsiteHelper::getAsset('js/jquery.slicknav.js') }}"></script>
+<!-- Swiper js file -->
+<script src="{{ WebsiteHelper::getAsset('js/swiper-bundle.min.js') }}"></script>
+<!-- Counter js file -->
+<script src="{{ WebsiteHelper::getAsset('js/jquery.waypoints.min.js') }}"></script>
+<script src="{{ WebsiteHelper::getAsset('js/jquery.counterup.min.js') }}"></script>
+<!-- Isotop js file -->
+<script src="{{ WebsiteHelper::getAsset('js/isotope.min.js') }}"></script>
+<!-- Magnific js file -->
+<script src="{{ WebsiteHelper::getAsset('js/jquery.magnific-popup.min.js') }}"></script>
+<!-- SmoothScroll -->
+<script src="{{ WebsiteHelper::getAsset('js/SmoothScroll.js') }}"></script>
+<!-- Parallax js -->
+<script src="{{ WebsiteHelper::getAsset('js/parallaxie.js') }}"></script>
+<!-- MagicCursor js file -->
+<script src="{{ WebsiteHelper::getAsset('js/gsap.min.js') }}"></script>
+<script src="{{ WebsiteHelper::getAsset('js/magiccursor.js') }}"></script>
+<!-- Text Effect js file -->
+<script src="{{ WebsiteHelper::getAsset('js/SplitText.js') }}"></script>
+<script src="{{ WebsiteHelper::getAsset('js/ScrollTrigger.min.js') }}"></script>
+<!-- YTPlayer js File -->
+<script src="{{ WebsiteHelper::getAsset('js/jquery.mb.YTPlayer.min.js') }}"></script>
+<!-- Wow js file -->
+<script src="{{ WebsiteHelper::getAsset('js/wow.min.js') }}"></script>
+<!-- Main Custom js file -->
+<script src="{{ WebsiteHelper::getAsset('js/function.js') }}"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js"></script>
-
-<!-- template js -->
-<script src="{{ WebsiteHelper::getAsset('js/script.js') }}"></script>
 @stack('scripts')

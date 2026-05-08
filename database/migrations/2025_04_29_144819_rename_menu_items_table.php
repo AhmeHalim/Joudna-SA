@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         // Check if the old table exists before renaming
-        if (Schema::hasTable('menu-items')) {
-            Schema::rename('menu-items', 'menu_items');
+        if (Schema::hasTable('menu-Items')) {
+            Schema::rename('menu-Items', 'menu_items');
         }
     }
 
@@ -24,7 +24,7 @@ return new class extends Migration
     {
         // Reverse the renaming
         if (Schema::hasTable('menu_items')) {
-            Schema::rename('menu_items', 'menu-items');
+            Schema::rename('menu_items', 'menu-Items');
         }
     }
 };

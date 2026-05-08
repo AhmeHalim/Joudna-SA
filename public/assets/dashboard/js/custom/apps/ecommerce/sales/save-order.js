@@ -86,7 +86,7 @@ var KTAppEcommerceSalesSaveOrder = (function () {
             //                         .cloneNode(!0),
             //                     i = document.createElement("div"),
             //                     n = o.innerHTML,
-            //                     a = ["d-flex", "align-items-center"];
+            //                     a = ["d-flex", "align-Items-center"];
             //                 o.classList.remove(...a),
             //                     o.classList.add("col", "my-2"),
             //                     (o.innerHTML = ""),

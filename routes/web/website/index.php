@@ -11,22 +11,13 @@ Route::name('website.')->group(function () {
     Route::get('/contact-us', [HomeController::class, 'contact_us'])->name('contact_us');
     Route::post('/contact-us-save', [HomeController::class, 'contact_us_save'])->name('contact-us-save');
 
-    Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
+    Route::get('/gallery-images', [HomeController::class, 'galleryImages'])->name('gallery-images');
+    Route::get('/gallery-videos', [HomeController::class, 'galleryVideos'])->name('gallery-videos');
+    Route::get('/menu', [HomeController::class, 'menu'])->name('menu');
 
-    Route::get('/services', [HomeController::class, 'services'])->name('services');
-    Route::get('/services/{service}', [HomeController::class, 'serviceDetails'])->name('service-details');
+    Route::get('/feed-back', [HomeController::class, 'feedBack'])->name('feed-back');
+    Route::post('/feed-back-save', [HomeController::class, 'feedback_save'])->name('feedback-save');
 
-    Route::get('/projects', [HomeController::class, 'projects'])->name('projects');
-    Route::get('/projects/{project}', [HomeController::class, 'projectDetails'])->name('project-details');
-
-
-    Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs');
-    Route::get('/blogs/{blog}', [HomeController::class, 'blogDetails'])->name('blog');
-
-    Route::get('/blog-categories/{blogCategory}', [BlogCategoryController::class, 'blog_category'])->name('blog_category');
-
-    Route::get('/pages/{page}', [HomeController::class, 'pageDetails'])->name('page-details');
-
-    Route::get('/clients', [HomeController::class, 'clients'])->name('clients');
-
+    Route::get('book-table',  [HomeController::class, 'book_table'])->name('book-table');
+    Route::post('book-table', [HomeController::class, 'book_table_save'])->name('book-table-save');
 });

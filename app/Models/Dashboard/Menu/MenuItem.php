@@ -24,23 +24,14 @@ class MenuItem extends Model
         'home' => 'home',
         'about-us' => 'about-us',
         'contact-us' => 'contact-us',
-        'clients' => 'clients',
-        'service' => 'service',
-        'services' => 'services',
-        'project' => 'project',
-        'projects' => 'projects',
-        'portfolio' => 'portfolio',
-        'blogs' => 'blogs',
+        'feed-back' => 'feed-back',
+        'menu' => 'menu',
+        'gallery' => 'gallery',
+        'gallery-images' => 'gallery-images',
+        'gallery-videos' => 'gallery-videos',
         'link' => 'link',
 
-//        'blog-categories' => 'blog-categories',
-//        'blog-category' => 'blog-category',
-//        'blogs' => 'blogs',
-//        'blog' => 'blog',
-//        'pages' => 'pages',
-//        'page' => 'page',
-//        'main-menu' => 'main-menu',
-//        'images-gallery' => 'images-gallery',
+
     ];
 
     protected $fillable = ['name', 'types', 'type_value_id', 'status', 'menu_id', 'parent_id', 'order', 'link'];
@@ -106,25 +97,15 @@ class MenuItem extends Model
                 return LaravelLocalization::localizeUrl('/contact-us');
             case 'link':
                 return LaravelLocalization::localizeUrl($this->link);
-            case 'clients':
-                return LaravelLocalization::localizeUrl('clients');
-            case 'projects':
-                return LaravelLocalization::localizeUrl('projects');
-            case 'portfolio':
-                return LaravelLocalization::localizeUrl('portfolio');
-            case 'page':
-                return LaravelLocalization::localizeUrl('page/' . $this->page?->slug);
-            case 'blog-category':
-                return LaravelLocalization::localizeUrl('blog-category/' . $this->blog_category?->slug);
-            case 'blogs':
-                return LaravelLocalization::localizeUrl('blogs');
-            case 'images-gallery':
-                return LaravelLocalization::localizeUrl('images-gallery');
-            case 'services':
-                return 'javascript:void(0)';
-            case 'pages':
-                return 'javascript:void(0)';
-            case 'blog-categories':
+            case 'gallery-images':
+                return LaravelLocalization::localizeUrl('gallery-images');
+            case 'gallery-videos':
+                return LaravelLocalization::localizeUrl('gallery-videos');
+            case 'menu':
+                return LaravelLocalization::localizeUrl('menu');
+            case 'feed-back':
+                return LaravelLocalization::localizeUrl('feed-back');
+            case 'gallery':
                 return 'javascript:void(0)';
             case 'main-menu':
                 return 'javascript:void(0)';
@@ -140,14 +121,6 @@ class MenuItem extends Model
                 return __('home.about_us');
             case 'contact-us':
                 return __('home.contact_us');
-            case 'field':
-                return $this->field?->name;
-            case 'course':
-                return $this->course?->name;
-            case 'page':
-                return $this->page?->name;
-            case 'blog-category':
-                return $this->blog_category?->name;
             default:
                 return $this->name;
         }
@@ -169,22 +142,14 @@ class MenuItem extends Model
                 return Request::is('about-us');
             case 'contact-us':
                 return Request::is('contact-us');
-            case 'categories':
-                return Request::is('categories') || Request::segment(2) == 'category';
-            case 'blogs':
-                return Request::is('blogs') || Request::segment(2) == 'blog';
-            case 'blog-category':
-                return Request::is('blog-category/*');
-            case 'blog-categories':
-                return Request::is('blog-categories') || Request::segment(2) == 'blog-category';
-            case 'images-gallery':
-                return Request::is('images-gallery') || Request::segment(2) == 'images-gallery';
-            case 'services':
-                return Request::is('services') || Request::segment(2) == 'service';
-            case 'page':
-                return Request::segment(2) == 'page';
-            case 'pages':
-                return Request::is('pages') || Request::segment(2) == 'page';
+            case 'gallery-images':
+                return Request::is('gallery-images') || Request::segment(2) == 'gallery-images';
+            case 'gallery-videos':
+                return Request::is('gallery-videos') || Request::segment(2) == 'gallery-videos';
+            case 'menu':
+                return Request::is('menu') || Request::segment(2) == 'menu';
+            case 'feed-back':
+                return Request::is('feed-back') || Request::segment(2) == 'feed-back';
             case 'main-menu':
                 if ($this->subMenus->count() > 0) {
                     foreach ($this->subMenus as $subMenu) {

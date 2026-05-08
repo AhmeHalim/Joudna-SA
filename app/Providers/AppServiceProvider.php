@@ -4,9 +4,9 @@ namespace app\Providers;
 
 use app\Models\Dashboard\Blog\Blog;
 use app\Models\Dashboard\Blog\BlogCategory;
+use app\Models\Dashboard\Category\Category;
 use app\Models\Dashboard\Menu\Menu;
 use app\Models\Dashboard\Page\Page;
-use app\Models\Dashboard\Service\Service;
 use app\Models\Dashboard\Setting\Setting;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Cache;
@@ -61,8 +61,9 @@ class AppServiceProvider extends ServiceProvider
             });
 
             $header_pages = Page::where('status', 'published')->where('menu', 1)->select('id', 'name')->get();
-            $menu_services = Service::where('status', 'published')->where('menu', 1)->select('id', 'name','slug')->get();
             $pages = Page::where('status', 'published')->get();
+
+            $tickerCategories = Category::where('status', 'published')->orderBy('display_order')->get();
 
             // Share all data with views
             $view->with([
@@ -74,7 +75,7 @@ class AppServiceProvider extends ServiceProvider
                 'header_blog_categories' => $header_blog_categories,
                 'header_pages' => $header_pages,
                 'pages' => $pages,
-                'menu_services'=>$menu_services,
+                'tickerCategories'=>$tickerCategories,
             ]);
         });
 

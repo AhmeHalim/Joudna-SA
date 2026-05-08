@@ -7,14 +7,17 @@
     @php
         $sectionMap = [
             'sliders' => 'website.partials.homeSections.sliders',
-            'services' => 'website.partials.homeSections.services',
             'about' => 'website.partials.homeSections.about',
-            'our_speciality' => 'website.partials.homeSections.our_speciality',
-            'projects' => 'website.partials.homeSections.projects',
             'statistics' => 'website.partials.homeSections.statistics',
-            'clients' => 'website.partials.homeSections.clients',
-            'blogs' => 'website.partials.homeSections.blogs',
+            'home_menu' => 'website.partials.homeSections.home_menu',
             'contact_us' => 'website.partials.homeSections.contact_us',
+
+//            'our_speciality' => 'website.partials.homeSections.our_speciality',
+//            'projects' => 'website.partials.homeSections.projects',
+//
+//            'clients' => 'website.partials.homeSections.clients',
+//            'blogs' => 'website.partials.homeSections.blogs',
+//            'contact_us' => 'website.partials.homeSections.contact_us',
         ];
     @endphp
 

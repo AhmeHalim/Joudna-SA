@@ -67,31 +67,31 @@ class SliderService
     }
 
     public function deleteSliders($selectedIds)
-{
-    DB::beginTransaction();
-    try {
-        $trashedSliders = Slider::onlyTrashed()->whereIn('id', $selectedIds)->get();
-        $activeSliders = Slider::whereIn('id', $selectedIds)->get();
+    {
+        DB::beginTransaction();
+        try {
+            $trashedSliders = Slider::onlyTrashed()->whereIn('id', $selectedIds)->get();
+            $activeSliders = Slider::whereIn('id', $selectedIds)->get();
 
-        if ($trashedSliders->isNotEmpty()) {
-            foreach ($trashedSliders as $slider) {
-                if ($slider->image) {
-                    Media::removeFile('sliders', $slider->image);
+            if ($trashedSliders->isNotEmpty()) {
+                foreach ($trashedSliders as $slider) {
+                    if ($slider->image) {
+                        Media::removeFile('sliders', $slider->image);
+                    }
                 }
+                Slider::onlyTrashed()->whereIn('id', $trashedSliders->pluck('id'))->forceDelete();
             }
-            Slider::onlyTrashed()->whereIn('id', $trashedSliders->pluck('id'))->forceDelete();
+
+            if ($activeSliders->isNotEmpty()) {
+                SoftDeleteHelper::deleteWithEvents(Slider::class, $activeSliders->pluck('id')->toArray());
+            }
+
+            DB::commit();
+            return true;
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return false;
         }
-
-        if ($activeSliders->isNotEmpty()) {
-            SoftDeleteHelper::deleteWithEvents(Slider::class, $activeSliders->pluck('id')->toArray());
-        }
-
-        DB::commit();
-        return true;
-
-    } catch (\Exception $e) {
-        DB::rollBack();
-        return false;
     }
-}
 }

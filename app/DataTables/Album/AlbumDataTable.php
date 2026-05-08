@@ -83,7 +83,7 @@ class AlbumDataTable extends DataTable
             ? '<a href="'.e($albumUrl).'" class="text-gray-800 text-hover-primary">'.__('Upload Files').'</a>'
             : '<span class="text-muted">'.__('Upload Files').'</span>';
 
-        return '<div class="d-flex align-items-center">'
+        return '<div class="d-flex align-Items-center">'
             . '<span class="icon-wrapper">'.$icon.'</span>'
             . $link
             . '</div>';

@@ -31,11 +31,13 @@ Route::prefix(LaravelLocalization::setLocale() . '/dashboard')
         require base_path('routes/web/dashboard/pages.php');
         require base_path('routes/web/dashboard/sliders.php');
         require base_path('routes/web/dashboard/blogs.php');
-        require base_path('routes/web/dashboard/services.php');
+        require base_path('routes/web/dashboard/category.php');
         require base_path('routes/web/dashboard/testimonials.php');
         require base_path('routes/web/dashboard/about.php');
         require base_path('routes/web/dashboard/contactUs.php');
         require base_path('routes/web/dashboard/websiteStatistics.php');
-        require base_path('routes/web/dashboard/projects.php');
+        require base_path('routes/web/dashboard/items.php');
+        require base_path('routes/web/dashboard/feedbacks.php');
+        require base_path('routes/web/dashboard/book_tables.php');
     });
 

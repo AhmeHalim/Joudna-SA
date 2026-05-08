@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('album_videos', function (Blueprint $table) {
             $table->id();
+            $table->string('image');
+            $table->string('alt_image')->nullable();
             $table->string('video_url');
             $table->foreignId('album_id')->constrained()->cascadeOnDelete();
             $table->enum('status', ['published', 'inactive'])->default('inactive');

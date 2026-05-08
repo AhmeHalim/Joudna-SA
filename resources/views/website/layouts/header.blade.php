@@ -1,163 +1,119 @@
-<header class="main-header-three">
-    <div class="main-header-three__wrapper">
-        <div class="main-menu-three__top">
+<!-- Header Start -->
+<header class="main-header active-sticky-header">
+    <div class="header-sticky">
+        <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <div class="main-menu-three__top-inner">
-                    <ul class="list-unstyled main-menu-three__contact-list">
-                        <li>
-                            <div class="icon">
-                                <i class="icon-envolope"></i>
-                            </div>
-                            <div class="text">
-                                <p>
-                                    <a href="mailto:{{$settings->contact_email}}">{{$settings->contact_email}}</a>
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon">
-                                <i class="icon-pin"></i>
-                            </div>
-                            <div class="text">
-                                <p>
-                                    <a href="#">
-                                        {{ app()->getLocale() == 'en' ? $settings->address_en_1 : $settings->address1 }}
-                                    </a>
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon">
-                                <i class="icon-date"></i>
-                            </div>
-                            <div class="text">
-                                <p>{{ app()->getLocale() == 'en' ? 'Saturday - Thursday: 9 am - 6 pm' : 'السبت - الخميس : ٩ صباحاً - ٦ مساءً' }}</p>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="main-menu-three__top-right">
-                        <div class="main-menu-three__social">
-                            <a href="{{$settings->facebook_address}}"><i class="icon-facebook"></i></a>
-                            <a href="{{$settings->instagram_address}}"><i class="icon-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <nav class="main-menu main-menu-three">
-            <div class="main-menu-three__wrapper">
-                <div class="container">
-                    <div class="main-menu-three__wrapper-inner">
-                        <div class="main-menu-three__left">
-                            <div class="main-menu-three__logo">
-                                <a href="{{ LaravelLocalization::localizeUrl('/') }}">
-                                    <img src="{{ asset('uploads/settings/' . $settings->logo) }}" alt="website logo"/>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="main-menu-three__main-menu-box">
-                            <a href="javascript:void(0)" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
-                            <ul class="main-menu__list">
+                <!-- Logo Start -->
+                <a class="navbar-brand" href="{{ LaravelLocalization::localizeUrl('/') }}">
+                    <img src="{{ asset('uploads/settings/' . ($settings->white_logo ?? 'default-logo.webp')) }}" alt="@lang('home.logo_alt')" />
+                </a>
+                <!-- Logo End -->
 
-                                @foreach ($headMenu?->published_items()->whereNull('parent_id')->get() ?? [] as $headItem)
-                                    @if ($headItem->types == 'home')
-                                        <li>
-                                            <a href="{{ $headItem->custom_link }}" class="{{ request()->segment(2) == '' ? 'active' : '' }}">{{ $headItem->name }} </a>
-                                        </li>
-                                    @elseif($headItem->types == 'about-us')
-                                        <li>
-                                            <a href="{{ $headItem->custom_link }}" class="{{ request()->segment(2) == 'about-us' ? 'active' : '' }}">{{ $headItem->name }} </a>
-                                        </li>
-
-                                    @elseif($headItem->types == 'clients')
-                                        <li>
-                                            <a href="{{ $headItem->custom_link }}" class="{{ request()->segment(2) == 'clients' ? 'active' : '' }}">{{ $headItem->name }} </a>
-                                        </li>
-
-                                    @elseif($headItem->types == 'projects')
-                                        <li>
-                                            <a href="{{ $headItem->custom_link }}" class="{{ request()->segment(2) == 'projects' ? 'active' : '' }}">{{ $headItem->name }} </a>
-                                        </li>
-                                    @elseif($headItem->types == 'portfolio')
-                                        <li>
-                                            <a href="{{ $headItem->custom_link }}" class="{{ request()->segment(2) == 'portfolio' ? 'active' : '' }}">{{ $headItem->name }} </a>
-                                        </li>
-                                    @elseif($headItem->types == 'contact-us')
-                                        <li>
-                                            <a href="{{ $headItem->custom_link }}" class="{{ request()->segment(2) == 'contact-us' ? 'active' : '' }}">{{ $headItem->name }} </a>
-                                        </li>
-                                        
-                                    @elseif($headItem->types == 'blogs')
-                                        <li>
-                                            <a href="{{ $headItem->custom_link }}" class="{{ request()->segment(2) == 'contact-us' ? 'active' : '' }}">{{ $headItem->name }} </a>
-                                        </li>
-
-                                    @elseif($headItem->types == 'services')
-                                        <li class="dropdown">
-                                            <a href="javascript:void(0)">@lang('home.services')</a>
-                                            @if (count($menu_services) > 0 || $headItem->subMenus->count() > 0)
-                                                <ul>
-                                                    <li>
-                                                        <a href="{{ LaravelLocalization::localizeUrl('services/') }}">@lang('home.all_services')</a>
-                                                    </li>
-                                                    @if ($headItem->subMenus->count() > 0)
-                                                        @foreach ($headItem->subMenus as $subMenu)
-                                                            <li>
-                                                                <a href='{{ $subMenu->custom_link }}'>{{ $subMenu->name }}</a>
-                                                            </li>
-                                                        @endforeach
-                                                    @endif
-                                                    @foreach ($menu_services as $menu_service)
-                                                        <li>
-                                                            <a href="{{ LaravelLocalization::localizeUrl('services/' . $menu_service->slug) }}">{{ $menu_service->name }}</a>
-                                                        </li>
-                                                    @endforeach
-                                                </ul>
+                <!-- Main Menu Start -->
+                <div class="collapse navbar-collapse main-menu">
+                    <div class="nav-menu-wrapper">
+                        <ul class="navbar-nav mr-auto" id="menu">
+                            @foreach ($headMenu?->published_items()->whereNull('parent_id')->get() ?? [] as $headItem)
+                                @if ($headItem->types == 'home')
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->segment(2) == '' ? 'active' : '' }}" href="{{ $headItem->custom_link }}">{{ $headItem->name }}</a>
+                                    </li>
+                                @elseif($headItem->types == 'about-us')
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->segment(2) == 'about-us' ? 'active' : '' }}" href="{{ $headItem->custom_link }}">{{ $headItem->name }}</a>
+                                    </li>
+                                @elseif($headItem->types == 'feed-back')
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->segment(2) == 'feed-back' ? 'active' : '' }}" href="{{ $headItem->custom_link }}">{{ $headItem->name }}</a>
+                                    </li>
+                                @elseif($headItem->types == 'contact-us')
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->segment(2) == 'contact-us' ? 'active' : '' }}" href="{{ $headItem->custom_link }}">{{ $headItem->name }}</a>
+                                    </li>
+                                @elseif($headItem->types == 'menu')
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->segment(2) == 'menu' ? 'active' : '' }}" href="{{ $headItem->custom_link }}">{{ $headItem->name }}</a>
+                                    </li>
+                                @elseif($headItem->types == 'gallery')
+                                    <li class="nav-item submenu">
+                                        <a class="nav-link" href="javascript:void(0)">@lang('home.gallery')</a>
+                                        <ul>
+                                            @if ($headItem->types == 'gallery-images')
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{{ $headItem->custom_link }}">{{ $headItem->name }}</a>
+                                                </li>
                                             @endif
-                                        </li>
-                                    @endif
-                                        
 
-                                @endforeach
-                                
-                            </ul>
-                        </div>
-                        <div class="main-menu-three__right">
-                            <div class="lang-change">
-                                @php
-                                    $currentLocale = app()->getLocale();
-                                    $otherLocale = $currentLocale === 'en' ? 'ar' : 'en';
-                                @endphp
-                                <a href="{{ LaravelLocalization::getLocalizedURL($otherLocale) }}">
-                                    @if($currentLocale === 'en')
-                                        العربية
-                                    @else
-                                        English
-                                    @endif
-                                </a>
-                            </div>
-                            {{--
-                            <div class="main-menu-three__call">
-                                <div class="main-menu-three__call-icon">
-                                    <img src="{{ WebsiteHelper::getAsset('images/icon/chat-icon.png')}}" alt="phone icon" />
-                                </div>
-                                <div class="main-menu-three__call-number">
-                                    <p>@lang('home.Hotline')</p>
-                                    <h5><a href="tel:{{$settings->phone1}}">{{$settings->phone1}}</a></h5>
-                                </div>
-                            </div>
-                            --}}
+                                            @if ($headItem->types == 'gallery-videos')
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{{ $headItem->custom_link }}">{{ $headItem->name }}</a>
+                                                </li>
+                                            @endif
+                                        </ul>
+                                    </li>
+                                @else
+                                    {{-- Fallback for any other custom link Items --}}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ $headItem->custom_link }}">{{ $headItem->name }}</a>
+                                    </li>
+                                @endif
+                            @endforeach
+
+                            {{-- Hardcoded fallback Items in case $headMenu is empty (optional) --}}
+                            @if(!$headMenu || $headMenu->published_items()->whereNull('parent_id')->get()->isEmpty())
+                                <li class="nav-item"><a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/') }}">@lang('home.home')</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ LaravelLocalization::localizeUrl('about-us') }}">@lang('home.about_us')</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ LaravelLocalization::localizeUrl('reviews') }}">@lang('home.feedback')</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ LaravelLocalization::localizeUrl('menu') }}">@lang('home.menu')</a></li>
+                                <li class="nav-item submenu">
+                                    <a class="nav-link" href="javascript:void(0)">@lang('home.gallery')</a>
+                                    <ul>
+                                        <li class="nav-item"><a class="nav-link" href="{{ LaravelLocalization::localizeUrl('video-gallery') }}">@lang('home.video_gallery')</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{{ LaravelLocalization::localizeUrl('image-gallery') }}">@lang('home.image_gallery')</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="{{ LaravelLocalization::localizeUrl('contact-us') }}">@lang('home.contact_us')</a></li>
+                                <li class="nav-item highlighted-menu"><a class="nav-link" href="{{ LaravelLocalization::localizeUrl('book-table') }}">@lang('home.book_a_table')</a></li>
+                            @endif
+                        </ul>
+                    </div>
+
+                    <!-- Header Button Box Start (Desktop) -->
+                    <div class="header-button-box">
+                        <div class="header-btn">
+                            <a href="{{ LaravelLocalization::localizeUrl('book-table') }}" class="btn-default btn-highlighted">@lang('home.book_a_table')</a>
                         </div>
                     </div>
+                    <!-- Header Button Box End -->
                 </div>
+                <!-- Main Menu End -->
+
+                <!-- Mobile Toggle & Language Selector Start -->
+                <div class="mobile-header-controls d-flex align-items-center">
+                    <div class="lang-change me-3">
+                        @php
+                            $currentLocale = app()->getLocale();
+                            $otherLocale = $currentLocale === 'en' ? 'ar' : 'en';
+                        @endphp
+                        <a href="{{ LaravelLocalization::getLocalizedURL($otherLocale) }}" class="btn-lang">
+                            @if($currentLocale === 'en')
+                                @lang('home.arabic')
+                            @else
+                                @lang('home.english')
+                            @endif
+                        </a>
+                    </div>
+                    <div class="navbar-toggle"></div>
+                </div>
+                <!-- Mobile Toggle & Language Selector End -->
             </div>
         </nav>
+        <div class="responsive-menu"></div>
     </div>
 </header>
+<!-- Header End -->
 
-<!-- /.stricky-header -->
-<div class="stricky-header stricked-menu main-menu main-menu-three">
+<!-- Sticky Header Clone for Scroll Effect (if needed) -->
+<div class="stricky-header stricked-menu main-header active-sticky-header">
     <div class="sticky-header__content"></div>
-    <!-- /.sticky-header__content -->
 </div>
-

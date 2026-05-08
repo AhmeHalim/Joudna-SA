@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Dashboard\Settings;
+namespace App\Http\Requests\Dashboard\Settings;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -59,13 +59,6 @@ class SettingRequest extends FormRequest
             'mail_encryption' => 'nullable|string|max:10|in:tls,ssl,starttls,smtp',
             'mail_username' => 'nullable|string|max:100',
             'mail_password' => 'nullable|string|max:100',
-
-            //Sms Settings
-            'sms_sender_name' => 'nullable|string|max:100',
-            'sms_app_id' => 'nullable|string|max:100',
-            'sms_app_sec' => 'nullable|string|max:100',
-            'sms_provider' => 'nullable|string|max:100',
-            'sms_user_name' => 'nullable|string|max:100',
 
             // Social Media Links
             'facebook_address' => 'nullable|url',

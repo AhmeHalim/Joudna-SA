@@ -6,7 +6,7 @@ var KTAppInvoicesCreate = (function () {
     // Calculate totals
     var calculateTotals = function () {
         var items = formElement.querySelectorAll(
-            '[data-kt-element="items"] [data-kt-element="item"]'
+            '[data-kt-element="Items"] [data-kt-element="item"]'
         );
 
         var total = 0;
@@ -37,10 +37,10 @@ var KTAppInvoicesCreate = (function () {
             formatter.to(total);
     };
 
-    // Handle empty state if no items
+    // Handle empty state if no Items
     var handleEmptyState = function () {
         var itemCount = formElement.querySelectorAll(
-            '[data-kt-element="items"] [data-kt-element="item"]'
+            '[data-kt-element="Items"] [data-kt-element="item"]'
         ).length;
 
         if (itemCount === 0) {
@@ -49,11 +49,11 @@ var KTAppInvoicesCreate = (function () {
                 .cloneNode(true);
 
             formElement
-                .querySelector('[data-kt-element="items"] tbody')
+                .querySelector('[data-kt-element="Items"] tbody')
                 .appendChild(emptyRow);
         } else {
             var emptyElement = formElement.querySelector(
-                '[data-kt-element="items"] [data-kt-element="empty"]'
+                '[data-kt-element="Items"] [data-kt-element="empty"]'
             );
             if (emptyElement) {
                 emptyElement.remove();
@@ -95,7 +95,7 @@ var KTAppInvoicesCreate = (function () {
 
             // Add item
             var addItemButton = formElement.querySelector(
-                '[data-kt-element="items"] [data-kt-element="add-item"]'
+                '[data-kt-element="Items"] [data-kt-element="add-item"]'
             );
 
             if (addItemButton) {
@@ -107,7 +107,7 @@ var KTAppInvoicesCreate = (function () {
                         .cloneNode(true);
 
                     formElement
-                        .querySelector('[data-kt-element="items"] tbody')
+                        .querySelector('[data-kt-element="Items"] tbody')
                         .appendChild(newItem);
 
                     handleEmptyState();
@@ -118,7 +118,7 @@ var KTAppInvoicesCreate = (function () {
             // Remove item
             KTUtil.on(
                 formElement,
-                '[data-kt-element="items"] [data-kt-element="remove-item"]',
+                '[data-kt-element="Items"] [data-kt-element="remove-item"]',
                 "click",
                 function (e) {
                     e.preventDefault();
@@ -134,7 +134,7 @@ var KTAppInvoicesCreate = (function () {
             // Update totals when quantity or price changes
             KTUtil.on(
                 formElement,
-                '[data-kt-element="items"] [data-kt-element="quantity"], [data-kt-element="items"] [data-kt-element="price"]',
+                '[data-kt-element="Items"] [data-kt-element="quantity"], [data-kt-element="Items"] [data-kt-element="price"]',
                 "change",
                 function () {
                     calculateTotals();

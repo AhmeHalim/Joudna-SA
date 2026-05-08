@@ -4,14 +4,13 @@ namespace app\Http\Controllers\Dashboard;
 
 use app\Http\Controllers\Controller;
 use app\Models\Dashboard\Blog\Blog;
+use App\Models\Dashboard\Category\Category;
 use app\Models\Dashboard\Client\Client;
 use app\Models\Dashboard\ContactUs\ContactUs;
+use App\Models\Dashboard\Item\Item;
 use app\Models\Dashboard\Page\Page;
-use app\Models\Dashboard\Project\Project;
-use app\Models\Dashboard\Service\Service;
 use app\Models\Dashboard\Testimonial\Testimonial;
 use app\Models\User;
-use App\Models\Website\StudentExam;
 use app\Services\Dashboard\DashboardService;
 use Illuminate\Http\Request;
 
@@ -29,8 +28,8 @@ class DashboardController extends Controller
     {
         $statistics = [
             'users' => User::count(),
-            'services' => Service::count(),
-            'projects' => Project::count(),
+            'categories' => Category::count(),
+            'items' => item::count(),
             'blogs' => Blog::count(),
             'clients' => Client::count(),
             'testimonials' => Testimonial::count(),

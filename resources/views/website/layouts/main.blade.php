@@ -11,46 +11,71 @@
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('uploads/settings/' . $settings->fav_icon) }}"/>
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('uploads/settings/' . $settings->fav_icon) }}"/>
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('uploads/settings/' . $settings->fav_icon) }}"/>
-        <meta name="description" content="vrf main website , we are take the lead" />
+        <meta name="description" content="joudna main website , we are take the lead" />
 
         @include('website.layouts.css')
     </head>
 
-<body class="custom-cursor">
-    <div class="custom-cursor__cursor"></div>
-    <div class="custom-cursor__cursor-two"></div>
+    <body>
+        <!-- Preloader Start -->
+        <div class="preloader">
+            <div class="loading-container">
+                <div class="loading"></div>
+                <div id="loading-icon"><img src="{{ asset('uploads/settings/' . $settings->logo) }}" alt="website logo" /></div>
+            </div>
+        </div>
+        <!-- Preloader End -->
 
-    <div class="preloader">
-        <div class="preloader__image"></div>
-    </div>
-    <!-- /.preloader -->
+        <!-- Topbar Section Start -->
+        <div class="topbar">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-9">
+                        <!-- Topbar Contact Information Start -->
+                        <div class="topbar-contact-info">
+                            <ul>
+                                <li>
+                                    <a href="mailto:{{$settings->contact_email}}" target="_blank"><img src="{{ WebsiteHelper::getAsset('images/icon-mail.svg')}}" alt="" />{{$settings->contact_email}}</a>
 
-    <div class="page-wrapper">
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://www.google.com/maps/place/Joudna+Bakery+%26+Coffee/@24.7648185,46.7156804,17z/data=!3m1!4b1!4m6!3m5!1s0x3e2efddf087dd14f:0x4c7834795e9a73a3!8m2!3d24.7648185!4d46.7156804!16s%2Fg%2F11v_3sj5n9!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D">
+                                        <img src="{{ WebsiteHelper::getAsset('images/icon-location.svg')}}" alt="" />{{ app()->getLocale() == 'en' ? $settings->address_en_1 : $settings->address1 }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Topbar Contact Information End -->
+                    </div>
+
+                    <div class="col-md-3">
+                        <!-- Topbar Social Links Start -->
+                        <div class="topbar-social-links">
+                            <ul>
+                                <li>
+                                    <a href="{{$settings->instagram_address}}" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                                </li>
+                                <li>
+                                    <a href="{{$settings->tiktok_address}}" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                                </li>
+                                <li>
+                                    <a href="{{$settings->snapchat_address}}" target="_blank"><i class="fa-brands fa-snapchat"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Topbar Social Links End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Topbar Section End -->
+
         @include('website.layouts.header')
 
         @yield('content')
 
         @include('website.layouts.footer')
-    </div>
-    <!-- /.page-wrapper -->
 
-    @include('website.layouts.mobile_nav')
-
-    <a href="javascript:void(0)" data-target="html" class="scroll-to-target scroll-to-top">
-        <span class="scroll-to-top__wrapper"><span class="scroll-to-top__inner"></span></span>
-        <span class="scroll-to-top__text"> @lang('home.Go Back Top')</span>
-    </a>
-    <ul id="wrapper" class="" style="transform: translate(15%, 100%)">
-        <li class="Icon call">
-            <!--<span class="tooltip">Call</span>-->
-            <a href="tel:{{$settings->phone1}}"><span><img src="{{ WebsiteHelper::getAsset('images/icon/cell-phone.png') }}" alt="phone icon" /></span></a>
-        </li>
-        <li class="Icon whatsapp">
-            <!--<span class="tooltip">whatsapp</span>-->
-            <a href="{$settings->whatsapp_address}}" target="_blank"><span><i class="fab fa-whatsapp"></i></span></a>
-        </li>
-    </ul>
-
-    @include('website.layouts.js')
+        @include('website.layouts.js')
     </body>
 </html>

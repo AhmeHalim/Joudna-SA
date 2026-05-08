@@ -50,66 +50,66 @@
                                     @endforeach
                                 </div>
 
-                            <!--end::Tab pane-->
+                                <!--end::Tab pane-->
+                            </div>
                         </div>
+                        <!--end::Body-->
                     </div>
-                    <!--end::Body-->
                 </div>
+                <!--end::Card-->
             </div>
-            <!--end::Card-->
+            <!--end::Content container-->
         </div>
-        <!--end::Content container-->
-    </div>
 
-    @push('scripts')
+        @push('scripts')
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                // Initialize Sortable.js on the container that holds the rows
-                const sortable = new Sortable(document.getElementById('sortable-sections'), {
-                    handle: '.order-form', // Allows dragging from this area
-                    animation: 150, // Smooth dragging animation
-                    filter: '.separator', // Prevent separators from being draggable on their own
-                    onEnd(evt) {
-                        // Call the function to update the order when the rows are rearranged
-                        updateOrder(evt);
-                    }
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Initialize Sortable.js on the container that holds the rows
+                    const sortable = new Sortable(document.getElementById('sortable-sections'), {
+                        handle: '.order-form', // Allows dragging from this area
+                        animation: 150, // Smooth dragging animation
+                        filter: '.separator', // Prevent separators from being draggable on their own
+                        onEnd(evt) {
+                            // Call the function to update the order when the rows are rearranged
+                            updateOrder(evt);
+                        }
+                    });
                 });
-            });
 
-            function updateOrder(evt) {
-                // Capture the new order of the items
-                const orderedSections = Array.from(evt.from.querySelectorAll('.sortable-item')).map(item => item.getAttribute('data-id'));
+                function updateOrder(evt) {
+                    // Capture the new order of the items
+                    const orderedSections = Array.from(evt.from.querySelectorAll('.sortable-item')).map(item => item.getAttribute('data-id'));
 
-                // Send the new order to the server
-                const url = '{{route('settings.update-section-order')}}'; // Replace with your backend URL
-                const formData = new FormData();
-                formData.append('orderedSections', JSON.stringify(orderedSections));
-                formData.append('_token', document.querySelector('input[name="_token"]').value);
+                    // Send the new order to the server
+                    const url = '{{route('settings.update-section-order')}}'; // Replace with your backend URL
+                    const formData = new FormData();
+                    formData.append('orderedSections', JSON.stringify(orderedSections));
+                    formData.append('_token', document.querySelector('input[name="_token"]').value);
 
-                fetch(url, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json',
-                        'X-Requested-With': 'XMLHttpRequest'
-                    }
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            console.log('Order updated successfully!');
-                            // Optionally reload the page or update UI
-                            // location.reload();
-                        } else {
-                            console.error('Failed to update order:', data.message);
+                    fetch(url, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest'
                         }
                     })
-                    .catch(error => {
-                        console.error('Error updating order:', error);
-                    });
-            }
-        </script>
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                console.log('Order updated successfully!');
+                                // Optionally reload the page or update UI
+                                // location.reload();
+                            } else {
+                                console.error('Failed to update order:', data.message);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error updating order:', error);
+                        });
+                }
+            </script>
     @endpush
 </x-dashboard.layout>

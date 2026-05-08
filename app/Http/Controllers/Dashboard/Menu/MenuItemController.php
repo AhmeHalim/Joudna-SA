@@ -9,8 +9,8 @@ use app\Models\Dashboard\Blog\Blog;
 use app\Models\Dashboard\Blog\BlogCategory;
 use app\Models\Dashboard\Menu\MenuItem;
 use app\Models\Dashboard\Page\Page;
-use app\Models\Dashboard\Project\Project;
-use app\Models\Dashboard\Service\Service;
+use app\Models\Dashboard\Project\item;
+use app\Models\Dashboard\Service\Category;
 use app\Services\Dashboard\Menu\MenuItemService;
 use Illuminate\Http\Request;
 
@@ -142,25 +142,11 @@ class MenuItemController extends Controller
     public function getMenuTypesValues($type){
         $values = [];
 
-        if($type == 'blog'){
-            $values = Blog::select('id','name')->get();
-        }
+//        if($type == 'blog'){
+//            $values = Blog::select('id','name')->get();
+//        }
 
-        if($type == 'service'){
-            $values = Service::select('id','name')->get();
-        }
 
-        if($type == 'project'){
-            $values = Project::select('id','name')->get();
-        }
-
-        if($type == 'page'){
-            $values = page::select('id','name')->get();
-        }
-
-        if($type == 'blog-category'){
-            $values = BlogCategory::select('id','name')->get();
-        }
         // add here any new model you want//
 
         return $values;

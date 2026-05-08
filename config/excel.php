@@ -281,7 +281,7 @@ return [
         | Cache Time-to-live (TTL)
         |--------------------------------------------------------------------------
         |
-        | The TTL of items written to cache. If you want to keep the items cached
+        | The TTL of Items written to cache. If you want to keep the Items cached
         | indefinitely, set this to null.  Otherwise, set a number of seconds,
         | a \DateInterval, or a callable.
         |

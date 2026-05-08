@@ -120,7 +120,7 @@
                                     timer: 1500
                                 });
 
-                                // Remove the rows of deleted items
+                                // Remove the rows of deleted Items
                                 selectedCheckboxes.each(function() {
                                     $(this).closest('tr').remove();
                                 });

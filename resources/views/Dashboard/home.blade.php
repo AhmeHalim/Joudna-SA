@@ -30,16 +30,16 @@
             </div>
         </div>
 
-        <!-- Services Statistics -->
+        <!-- Category Statistics -->
         <div class="col-xl-3 col-md-6">
             <div class="card card-animate overflow-hidden">
                 <div class="position-relative">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1 overflow-hidden">
-                                <p class="text-uppercase fw-medium text-muted text-truncate mb-3">@lang('dash.Total Services')</p>
+                                <p class="text-uppercase fw-medium text-muted text-truncate mb-3">@lang('dash.Total Category')</p>
                                 <h4 class="fs-22 fw-semibold ff-secondary mb-0">
-                                    <span class="counter-value" data-target="{{ $statistics['services'] ?? 0 }}">0</span>
+                                    <span class="counter-value" data-target="{{ $statistics['categories'] ?? 0 }}">0</span>
                                 </h4>
                             </div>
                             <div class="flex-shrink-0">
@@ -52,24 +52,24 @@
                         </div>
                     </div>
                     <div class="card-footer bg-transparent border-top-dashed py-2">
-                        <a href="{{ route('services.index') }}" class="text-success text-decoration-none">
-                            @lang('dash.View all services') <i class="ri-arrow-right-line align-middle"></i>
+                        <a href="{{ route('categories.index') }}" class="text-success text-decoration-none">
+                            @lang('dash.View all categories') <i class="ri-arrow-right-line align-middle"></i>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Projects Statistics -->
+        <!-- Items Statistics -->
         <div class="col-xl-3 col-md-6">
             <div class="card card-animate overflow-hidden">
                 <div class="position-relative">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1 overflow-hidden">
-                                <p class="text-uppercase fw-medium text-muted text-truncate mb-3">@lang('dash.Total Projects')</p>
+                                <p class="text-uppercase fw-medium text-muted text-truncate mb-3">@lang('dash.Total Items')</p>
                                 <h4 class="fs-22 fw-semibold ff-secondary mb-0">
-                                    <span class="counter-value" data-target="{{ $statistics['projects'] ?? 0 }}">0</span>
+                                    <span class="counter-value" data-target="{{ $statistics['items'] ?? 0 }}">0</span>
                                 </h4>
                             </div>
                             <div class="flex-shrink-0">
@@ -82,8 +82,8 @@
                         </div>
                     </div>
                     <div class="card-footer bg-transparent border-top-dashed py-2">
-                        <a href="{{ route('projects.index') }}" class="text-info text-decoration-none">
-                            @lang('dash.View all projects') <i class="ri-arrow-right-line align-middle"></i>
+                        <a href="{{ route('items.index') }}" class="text-info text-decoration-none">
+                            @lang('dash.View all items') <i class="ri-arrow-right-line align-middle"></i>
                         </a>
                     </div>
                 </div>
@@ -360,7 +360,7 @@
         document.querySelectorAll('.counter-value').forEach(counter => {
             const target = +counter.getAttribute('data-target');
             const increment = target / 100;
-            
+
             const updateCounter = () => {
                 const current = +counter.innerText;
                 if (current < target) {
@@ -370,7 +370,7 @@
                     counter.innerText = target;
                 }
             };
-            
+
             updateCounter();
         });
     </script>

@@ -1,7 +1,7 @@
 <x-dashboard.layout :title="__('dash.edit_menu_item')">
 
     <!--begin::Form-->
-    <form method="post" action="{{route('menu-items.update',$menuItem->id)}}" class="form d-flex flex-column flex-lg-row" data-kt-redirect="{{route('menu-items.index')}}" enctype="multipart/form-data">
+    <form method="post" action="{{route('menu-Items.update',$menuItem->id)}}" class="form d-flex flex-column flex-lg-row" data-kt-redirect="{{route('menu-Items.index')}}" enctype="multipart/form-data">
         @csrf
         @method('patch')
 
@@ -94,7 +94,7 @@
 
             <div class="d-flex justify-content-end">
                 <!--begin::Button-->
-                <a href="{{route('menu-items.index')}}" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">{{__('dash.Cancel')}}</a>
+                <a href="{{route('menu-Items.index')}}" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">{{__('dash.Cancel')}}</a>
                 <!--end::Button-->
 
                 <!--begin::Button-->

@@ -21,8 +21,8 @@ class PermissionSeeder extends Seeder
             'albums',
             'sliders',
             'pages',
-            'services',
-            'projects',
+            'categories',
+            'items',
             'blogs',
             'blog_categories',
             'clients',
@@ -35,6 +35,8 @@ class PermissionSeeder extends Seeder
             'users',
             'permissions',
             'roles',
+            'feedbacks',
+            'book-tables'
         ];
 
         $actions = ['read', 'create', 'update', 'delete'];

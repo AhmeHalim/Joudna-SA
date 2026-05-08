@@ -48,7 +48,7 @@
             @endcan
 
             @canany(['menus.read', 'about_us.read', 'about_values.read', 'albums.read', 'blogs.read',
-                'blog_categories.read', 'blogs.read', 'services.read', 'projects.read', 'sliders.read', 'pages.read',
+                'blog_categories.read', 'blogs.read', 'categories.read', 'items.read', 'sliders.read', 'pages.read',
                 'clients.read', 'testimonials.read'])
                 <div class="m-3">
                     <hr class="low-opacity">
@@ -59,7 +59,7 @@
             @can('menus.read')
                 <!--begin:Menus Menu item-->
                 <div data-kt-menu-trigger="click"
-                     class="menu-item {{ in_array(request()->segment(3), ['menus', 'menu-items']) ? 'here show ' : '' }} menu-accordion">
+                     class="menu-item {{ in_array(request()->segment(3), ['menus', 'menu-Items']) ? 'here show ' : '' }} menu-accordion">
 
                     <!--begin:Menu link-->
                     <span class="menu-link"><span class="menu-icon"><i
@@ -265,34 +265,34 @@
                 <!--end:videos item-->
             @endcan
 
-            @can('services.read')
-                <!--begin:services Menu item-->
+            @can('categories.read')
+                <!--begin:categories Menu item-->
                 <div data-kt-menu-trigger="click"
-                     class="menu-item {{ in_array(request()->segment(3), ['services']) ? 'here show' : '' }} menu-accordion">
+                     class="menu-item {{ in_array(request()->segment(3), ['categories']) ? 'here show' : '' }} menu-accordion">
                     <!--begin:Menu link-->
-                    <a href="{{ route('services.index') }}" class="menu-link"><span class="menu-icon"><i
+                    <a href="{{ route('categories.index') }}" class="menu-link"><span class="menu-icon"><i
                                     class="ki-outline primary-color ki-shop  fs-2"></i></span>
-                        <span class="menu-title">{{ __('dash.services') }}</span>
+                        <span class="menu-title">{{ __('dash.categories') }}</span>
                         <span class="menu-arrow d-none"></span>
                     </a>
                     <!--end:Menu link-->
                 </div>
-                <!--end:services item-->
+                <!--end:categories item-->
             @endcan
 
-            @can('projects.read')
-                <!--begin:projects Menu item-->
+            @can('items.read')
+                <!--begin:items Menu item-->
                 <div data-kt-menu-trigger="click"
-                     class="menu-item {{ in_array(request()->segment(3), ['projects']) ? 'here show' : '' }} menu-accordion">
+                     class="menu-item {{ in_array(request()->segment(3), ['items']) ? 'here show' : '' }} menu-accordion">
                     <!--begin:Menu link-->
-                    <a href="{{ route('projects.index') }}" class="menu-link"><span class="menu-icon"><i
-                                    class="ki-outline primary-color ki-security-check  fs-2"></i></span>
-                        <span class="menu-title">{{ __('dash.projects') }}</span>
+                    <a href="{{ route('items.index') }}" class="menu-link"><span class="menu-icon"><i
+                                    class="ki-outline primary-color ki-coffee  fs-2"></i></span>
+                        <span class="menu-title">{{ __('dash.items') }}</span>
                         <span class="menu-arrow d-none"></span>
                     </a>
                     <!--end:Menu link-->
                 </div>
-                <!--end:projects item-->
+                <!--end:items item-->
             @endcan
 
             @can('blogs.read')

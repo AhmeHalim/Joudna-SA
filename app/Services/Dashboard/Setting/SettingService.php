@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Services\Dashboard\Setting;
+namespace App\Services\Dashboard\Setting;
 use Illuminate\Support\Facades\DB;
 
 class SettingService

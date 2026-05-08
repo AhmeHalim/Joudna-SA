@@ -1,5 +1,4 @@
-@if(in_array($type,['main-menu','home','about-us','contact-us','blogs','portfolio',
-                    'pages','blog-categories','services','projects','images-gallery','clients']) )
+@if(in_array($type,['main-menu','home','about-us','contact-us','gallery-images','gallery-videos','feed-back','menu','gallery']) )
 
 @elseif($type == 'link')
     <!--begin::Input-->

@@ -14,6 +14,8 @@ class AlbumVideoService
         try {
             // Validate the request
             $validated = $request->validate([
+                'image' => ['nullable', 'image', 'mimes:jpeg,png,gif,bmp,webp,avif', 'max:3096'],
+                'alt_image' => ['nullable', 'string', 'max:255'],
                 'video_url' => 'required|url|starts_with:https://www.youtube.com,https://youtu.be/,https://vimeo.com',
                 'order' => 'required|integer|min:0',
                 'status' => 'required|in:published,inactive',
@@ -26,6 +28,14 @@ class AlbumVideoService
                 'video_url' => $this->getYoutubeEmbedUrl($validated['video_url']) ?? null,
                 'album_id' => $id
             ]);
+
+            // Handle media uploads (icon and image)
+            $albumMedia->handleMedia(
+                request(), // Pass the current request
+                $validated,
+                'album_videos_cover', // media type (storage folder)
+                ['image'] // optional - specify which media fields to handle
+            );
 
             // Find the album
             $album = Album::findOrFail($id);
@@ -98,7 +108,5 @@ class AlbumVideoService
         }
         return 'https://www.youtube.com/embed/' . $youtube_id ;
     }
-
-
 }
 

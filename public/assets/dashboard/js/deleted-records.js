@@ -30,14 +30,14 @@ const DeletedRecords = (function() {
         // Filter events
         $('#model-filter').on('change', handleFilterChange);
         $(document).on('click', '#clear-filter', handleClearFilter);
-        
+
         // Pagination
         $(document).on('click', '.pagination-link', handlePaginationClick);
-        
+
         // Checkboxes
         $(document).on('change', '#select-all', handleSelectAll);
         $(document).on('change', '.record-checkbox', handleIndividualCheckbox);
-        
+
         // Actions
         $(document).on('click', '.btn-view-details', handleViewDetails);
         $(document).on('click', '.btn-restore', handleBulkRestore);
@@ -104,18 +104,18 @@ const DeletedRecords = (function() {
 
     function handleSingleRestore(e) {
         e.preventDefault();
-        const record = [{ 
-            id: $(e.currentTarget).data('id'), 
-            model: $(e.currentTarget).data('model') 
+        const record = [{
+            id: $(e.currentTarget).data('id'),
+            model: $(e.currentTarget).data('model')
         }];
         confirmAction('restore', record, false);
     }
 
     function handleSingleDelete(e) {
         e.preventDefault();
-        const record = [{ 
-            id: $(e.currentTarget).data('id'), 
-            model: $(e.currentTarget).data('model') 
+        const record = [{
+            id: $(e.currentTarget).data('id'),
+            model: $(e.currentTarget).data('model')
         }];
         confirmAction('delete', record, false);
     }
@@ -202,10 +202,10 @@ const DeletedRecords = (function() {
     // Rendering Functions
     // ========================================================================
     function renderRecords(records, selectedModel) {
-        const html = records.length > 0 
+        const html = records.length > 0
             ? buildTableHTML(records)
             : buildEmptyStateHTML(selectedModel);
-        
+
         $('#records-container').html(html);
         updateSelectedCount();
     }
@@ -290,10 +290,10 @@ const DeletedRecords = (function() {
     }
 
     function buildEmptyStateHTML(selectedModel) {
-        const message = selectedModel === 'all' 
+        const message = selectedModel === 'all'
             ? 'No deleted records found'
             : 'No deleted records found for this model';
-        
+
         return `
             <div class="card bg-light-info">
                 <div class="card-body d-flex align-items-center py-8">
@@ -321,8 +321,8 @@ const DeletedRecords = (function() {
         let html = `
             <div id="pagination-container" class="d-flex flex-stack flex-wrap pt-10">
                 <div class="fs-6 fw-semibold text-gray-700">
-                    Showing <span class="fw-bold">${pagination.from}</span> to 
-                    <span class="fw-bold">${pagination.to}</span> of 
+                    Showing <span class="fw-bold">${pagination.from}</span> to
+                    <span class="fw-bold">${pagination.to}</span> of
                     <span class="fw-bold">${pagination.total}</span> results
                 </div>
                 <ul class="pagination">`;
@@ -395,14 +395,14 @@ const DeletedRecords = (function() {
         if (data.data && typeof data.data === 'object') {
             html += '<div class="table-responsive"><table class="table table-row-bordered table-row-gray-100 align-middle gs-0 gy-3">';
             html += '<thead><tr class="fw-bold text-muted bg-light"><th class="w-250px">Field</th><th>Value</th></tr></thead><tbody class="fw-semibold text-gray-600">';
-            
+
             Object.keys(data.data).forEach(key => {
                 if (key === '_deleted_at' || key === '_deleted_by') return;
                 const formattedKey = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
                 const value = formatValue(data.data[key]);
                 html += `<tr><td><span class="text-gray-800 fw-bold">${formattedKey}</span></td><td>${value}</td></tr>`;
             });
-            
+
             html += '</tbody></table></div>';
         } else {
             html += '<div class="alert alert-secondary">No data available</div>';
@@ -437,7 +437,7 @@ const DeletedRecords = (function() {
 
     function confirmAction(action, records, isBulk) {
         const isRestore = action === 'restore';
-        const title = isBulk 
+        const title = isBulk
             ? (isRestore ? 'Restore Records' : 'Permanent Delete')
             : (isRestore ? 'Restore Record' : 'Permanent Delete');
         const text = isBulk
@@ -462,7 +462,7 @@ const DeletedRecords = (function() {
 
     function updateSelectedCount() {
         const count = $('.record-checkbox:checked').length;
-        $('#selected-count').text(count + ' items selected');
+        $('#selected-count').text(count + ' Items selected');
     }
 
     function updateURL(model, page) {
@@ -516,7 +516,7 @@ const DeletedRecords = (function() {
     function formatRelativeDate(dateString) {
         const seconds = Math.floor((new Date() - new Date(dateString)) / 1000);
         const intervals = { year: 31536000, month: 2592000, day: 86400, hour: 3600, minute: 60 };
-        
+
         for (const [unit, secondsInUnit] of Object.entries(intervals)) {
             const interval = Math.floor(seconds / secondsInUnit);
             if (interval >= 1) return `${interval} ${unit}${interval > 1 ? 's' : ''} ago`;

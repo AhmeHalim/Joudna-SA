@@ -338,7 +338,7 @@ html[dir="rtl"] .top-filter .dataTables_filter input {
 
 /* Default cursor for the drag handle */
 .order-form {
-    cursor: move; /* Use 'move' cursor for draggable items */
+    cursor: move; /* Use 'move' cursor for draggable Items */
 }
 
 /* Optional: Change cursor when hovering */
