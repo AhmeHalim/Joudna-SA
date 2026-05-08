@@ -77,6 +77,24 @@
                             @endif
                         </ul>
                     </div>
+                    <!-- Mobile Toggle & Language Selector Start -->
+                    <div class="mobile-header-controls d-flex align-items-center">
+                        <div class="lang-change ms-3">
+                            @php
+                                $currentLocale = app()->getLocale();
+                                $otherLocale = $currentLocale === 'en' ? 'ar' : 'en';
+                            @endphp
+                            <a href="{{ LaravelLocalization::getLocalizedURL($otherLocale) }}" class="btn-lang">
+                                @if($currentLocale === 'en')
+                                    @lang('home.arabic')
+                                @else
+                                    @lang('home.english')
+                                @endif
+                            </a>
+                        </div>
+                        <div class="navbar-toggle"></div>
+                    </div>
+                    <!-- Mobile Toggle & Language Selector End -->
 
                     <!-- Header Button Box Start (Desktop) -->
                     <div class="header-button-box">
@@ -88,24 +106,7 @@
                 </div>
                 <!-- Main Menu End -->
 
-                <!-- Mobile Toggle & Language Selector Start -->
-                <div class="mobile-header-controls d-flex align-items-center">
-                    <div class="lang-change me-3">
-                        @php
-                            $currentLocale = app()->getLocale();
-                            $otherLocale = $currentLocale === 'en' ? 'ar' : 'en';
-                        @endphp
-                        <a href="{{ LaravelLocalization::getLocalizedURL($otherLocale) }}" class="btn-lang">
-                            @if($currentLocale === 'en')
-                                @lang('home.arabic')
-                            @else
-                                @lang('home.english')
-                            @endif
-                        </a>
-                    </div>
-                    <div class="navbar-toggle"></div>
-                </div>
-                <!-- Mobile Toggle & Language Selector End -->
+                
             </div>
         </nav>
         <div class="responsive-menu"></div>

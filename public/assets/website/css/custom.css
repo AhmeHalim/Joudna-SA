@@ -163,6 +163,9 @@ body {
   transform: translate(-50%, -50%) rotate(-45deg);
   z-index: 1;
 }
+[dir="rtl"] .image-anime:after {
+  transform: translate(50%, -50%) rotate(-45deg);
+}
 
 .image-anime:hover:after {
   height: 250%;
@@ -239,7 +242,7 @@ body {
   background: transparent;
   border: 1px solid var(--accent-secondary-color);
   color: var(--accent-secondary-color);
-  padding: 16px 30px;
+  padding: 13px 20px;
 }
 
 .btn-default.btn-highlighted:hover {
@@ -296,6 +299,9 @@ body {
   border-radius: 50%;
   transform: translate(-3px, -50%);
   transition: all 0.4s ease-in-out;
+}
+[dir="rtl"] .readmore-btn::before {
+  transform: translate(3px, -50%);
 }
 
 .readmore-btn:hover {
@@ -362,6 +368,9 @@ body {
   inset-inline-start: 50%;
   max-width: 300px;
   transform: translate(-50%, -50%);
+}
+[dir="rtl"] #loading-icon {
+  transform: translate(50%, -50%);
 }
 #loading-icon img {
   width: 300px;
@@ -631,7 +640,7 @@ header.main-header .header-sticky.active {
 }
 
 .main-menu ul li.nav-item a {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.02em;
   line-height: normal;
@@ -651,8 +660,9 @@ header.main-header .header-sticky.active {
 }
 
 .main-menu ul li a:hover,
+.main-menu ul li a.active,
 .main-menu ul li a:focus {
-  color: var(--accent-color);
+  color: var(--accent-color) !important;
 }
 
 .main-menu ul ul {
@@ -853,7 +863,12 @@ body:has(.offcanvas) {
 .header-sidebar-social-list ul li:hover i {
   color: var(--accent-color);
 }
-
+.lang-change {}
+.lang-change .btn-lang{
+    color: var(--accent-color);
+    font-weight: 600;
+    text-transform: uppercase;
+}
 .responsive-menu,
 .navbar-toggle {
   display: none;
@@ -4233,6 +4248,9 @@ body:has(.offcanvas) {
   transition: all 0.5s ease-in-out;
   z-index: 1;
 }
+[dir="rtl"] .video-gallery-image a::after {
+  transform: translate(50%, -50%);
+}
 
 .video-gallery-image:hover a::after {
   opacity: 1;
@@ -4309,6 +4327,9 @@ body:has(.offcanvas) {
   height: 80%;
   width: 1px;
   background-color: var(--divider-color);
+}
+[dir="rtl"] .contact-info-box-1 .contact-info-item::before {
+  transform: translate(-30px, -50%);
 }
 
 .contact-info-box-1 .contact-info-item:last-child:before,
@@ -6358,6 +6379,9 @@ body:has(.offcanvas) {
     transform: translate(-50%, 20px);
     height: 1px;
     width: 100%;
+  }
+  [dir="rtl"] .contact-info-box-1 .contact-info-item::before {
+    transform: translate(50%, 20px);
   }
 
   .contact-info-box-1 .contact-info-item:nth-child(2n + 2):before {
