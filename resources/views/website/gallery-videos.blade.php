@@ -15,7 +15,7 @@
     <div class="page-video-gallery">
         <div class="container">
             <div class="row">
-                @foreach($generalAlbum->videos as $key=>$video)
+                @foreach($generalAlbum->videos??[] as $key=>$video)
                     <div class="col-lg-4 col-md-6">
                         <!-- image gallery start -->
                         <div class="video-gallery-image wow fadeInUp">

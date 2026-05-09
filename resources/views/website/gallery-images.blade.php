@@ -17,7 +17,7 @@
             <!-- gallery section start -->
             <div class="row gallery-items page-gallery-box">
 
-                @foreach($generalAlbum->images as $key=>$image)
+                @foreach($generalAlbum->images??[] as $key=>$image)
                     <div class="col-lg-4 col-6">
                         <!-- image gallery start -->
                         <div class="photo-gallery wow fadeInUp">

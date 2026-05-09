@@ -2331,4 +2331,11 @@ return  [
         'View All' => 'View All',
         'No blogs found' => 'No blogs found',
         'No messages found' => 'No messages found',
+        'en'=>'English',
+        'item'=>'Item',
+        'items'=>'Items',
+        'add_item'=>'Add Item',
+        'edit_item'=>'Edit Item',
+        'recommended'=>'Recommended',
+        ''=>'',
     ];

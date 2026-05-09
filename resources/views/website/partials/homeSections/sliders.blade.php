@@ -32,7 +32,7 @@
                                             @endif
 
                                             <div class="hero-btn wow fadeInUp" data-wow-delay="0.4s">
-                                                <a href="{{ LaravelLocalization::localizeUrl($slider->btn1_link ?? 'about') }}" class="btn-default">
+                                                <a href="{{ LaravelLocalization::localizeUrl($slider->btn1_link ?? 'about-us') }}" class="btn-default">
                                                     {{ $slider->btn1_text ?? __('home.discover_coffee') }}
                                                 </a>
                                                 <a href="{{ LaravelLocalization::localizeUrl($slider->btn2_link ?? 'book-table') }}" class="btn-default btn-highlighted">
@@ -112,5 +112,43 @@
             </div>
         </div>
     </section>
+
 @endif
 <!-- Hero Section End -->
+
+<!-- Scrolling Ticker Section Start -->
+<div class="our-scrolling-ticker subpages-scrolling-ticker">
+    <!-- Scrolling Ticker Start -->
+    <div class="scrolling-ticker-box">
+
+        @if($tickerCategories->isNotEmpty())
+            {{-- Repeated twice for seamless infinite scroll effect --}}
+            @for($i = 0; $i < 2; $i++)
+                <div class="scrolling-content">
+                    @foreach($tickerCategories as $tickerCategory)
+                        <span>
+                            <img src="{{ WebsiteHelper::getAsset('images/asterisk-icon.svg') }}" alt="" />
+                            {{ $tickerCategory->name }}
+                        </span>
+                    @endforeach
+                </div>
+            @endfor
+        @else
+            {{-- Fallback static --}}
+            @for($i = 0; $i < 2; $i++)
+                <div class="scrolling-content">
+                    <span><img src="{{ WebsiteHelper::getAsset('images/asterisk-icon.svg') }}" alt="" />@lang('home.ticker_espresso')</span>
+                    <span><img src="{{ WebsiteHelper::getAsset('images/asterisk-icon.svg') }}" alt="" />@lang('home.ticker_americano')</span>
+                    <span><img src="{{ WebsiteHelper::getAsset('images/asterisk-icon.svg') }}" alt="" />@lang('home.ticker_latte')</span>
+                    <span><img src="{{ WebsiteHelper::getAsset('images/asterisk-icon.svg') }}" alt="" />@lang('home.ticker_cappuccino')</span>
+                    <span><img src="{{ WebsiteHelper::getAsset('images/asterisk-icon.svg') }}" alt="" />@lang('home.ticker_mocha')</span>
+                    <span><img src="{{ WebsiteHelper::getAsset('images/asterisk-icon.svg') }}" alt="" />@lang('home.ticker_macchiato')</span>
+                    <span><img src="{{ WebsiteHelper::getAsset('images/asterisk-icon.svg') }}" alt="" />@lang('home.ticker_cold_brew')</span>
+                </div>
+            @endfor
+        @endif
+
+    </div>
+    <!-- Scrolling Ticker End -->
+</div>
+<!-- Scrolling Ticker Section End -->

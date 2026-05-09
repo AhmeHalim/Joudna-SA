@@ -25,7 +25,7 @@ class WebsiteStatisticsRequest extends FormRequest
         return [
             'title_en' => ['required', 'string', 'max:255'],
             'title_ar' => ['required', 'string', 'max:255'],
-            'image' => ['nullable', 'image', 'mimes:jpeg,png,gif,bmp,webp,svg', 'max:3096'],
+            'image' => ['nullable', 'file', 'mimes:jpeg,png,gif,bmp,webp,svg', 'max:3096'],
             'alt_image' => ['nullable', 'string', 'max:255'],
             'count' => ['required', 'integer'],
             'status' => ['required', 'in:published,inactive'],

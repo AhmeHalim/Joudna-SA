@@ -122,5 +122,8 @@ return [
     'book_tables' => 'Table Bookings',
     'book_table_call_us' => 'Booking request',
     'book_table_or_form' => 'or fill out the order form',
+    'home_page'=>'Home',
+    'gallery_images'=>'Gallery Images',
+    'gallery_videos'=>'Gallery Videos',
 ];
 
