@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="video-counter-content">
                                     <h2>
-                                        <span class="counter" data-count="{{ $websiteStatistic->count }}">00</span>+
+                                        <span class="counter">{{ $websiteStatistic->count }}</span>+
                                     </h2>
                                     <p>{{ $websiteStatistic->title }}</p>
                                 </div>
@@ -112,6 +112,7 @@
                             </div>
                             <div class="video-counter-content">
                                 <h2><span class="counter" data-count="500">00</span>+</h2>
+                                
                                 <p>@lang('home.happy_customers')</p>
                             </div>
                         </div>

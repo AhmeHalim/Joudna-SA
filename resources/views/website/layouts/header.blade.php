@@ -37,19 +37,23 @@
                                 @elseif($headItem->types == 'gallery')
                                     <li class="nav-item submenu">
                                         <a class="nav-link" href="javascript:void(0)">@lang('home.gallery')</a>
+                                        @if ($headItem->subMenus->count() > 0)
                                         <ul>
-                                            @if ($headItem->types == 'gallery-images')
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="{{ $headItem->custom_link }}">{{ $headItem->name }}</a>
-                                                </li>
-                                            @endif
+                                            @foreach ($headItem->subMenus as $subMenu)
+                                                @if ($subMenu->types == 'gallery-images')
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="{{ $subMenu->custom_link }}">{{ $subMenu->name }}</a>
+                                                    </li>
+                                                @endif
 
-                                            @if ($headItem->types == 'gallery-videos')
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="{{ $headItem->custom_link }}">{{ $headItem->name }}</a>
-                                                </li>
-                                            @endif
+                                                @if ($subMenu->types == 'gallery-videos')
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="{{ $subMenu->custom_link }}">{{ $subMenu->name }}</a>
+                                                    </li>
+                                                @endif
+                                            @endforeach
                                         </ul>
+                                        @endif
                                     </li>
                                 @else
                                     {{-- Fallback for any other custom link Items --}}
@@ -79,7 +83,7 @@
                     </div>
                     <!-- Mobile Toggle & Language Selector Start -->
                     <div class="mobile-header-controls d-flex align-items-center">
-                        <div class="lang-change ms-3">
+                        <div class="lang-change mx-3">
                             @php
                                 $currentLocale = app()->getLocale();
                                 $otherLocale = $currentLocale === 'en' ? 'ar' : 'en';
@@ -92,7 +96,7 @@
                                 @endif
                             </a>
                         </div>
-                        <div class="navbar-toggle"></div>
+                        
                     </div>
                     <!-- Mobile Toggle & Language Selector End -->
 
@@ -105,16 +109,14 @@
                     <!-- Header Button Box End -->
                 </div>
                 <!-- Main Menu End -->
+                <div class="navbar-toggle"></div>
 
                 
             </div>
+            
         </nav>
         <div class="responsive-menu"></div>
     </div>
 </header>
 <!-- Header End -->
 
-<!-- Sticky Header Clone for Scroll Effect (if needed) -->
-<div class="stricky-header stricked-menu main-header active-sticky-header">
-    <div class="sticky-header__content"></div>
-</div>

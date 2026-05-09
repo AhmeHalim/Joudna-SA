@@ -151,80 +151,84 @@
     });
   }
 
-  /* Text Effect Animation */
-  if ($(".text-anime-style-1").length) {
-    let staggerAmount = 0.05,
-      translateXValue = 0,
-      delayValue = 0.5,
-      animatedTextElements = document.querySelectorAll(".text-anime-style-1");
+/* Text Effect Animation */
+const isRTL = document.documentElement.dir === "rtl";
 
-    animatedTextElements.forEach((element) => {
-      let animationSplitText = new SplitText(element, { type: "chars, words" });
-      gsap.from(animationSplitText.words, {
-        duration: 1,
-        delay: delayValue,
-        x: 20,
-        autoAlpha: 0,
-        stagger: staggerAmount,
-        scrollTrigger: { trigger: element, start: "top 85%" },
-      });
+if ($(".text-anime-style-1").length) {
+  let staggerAmount = 0.05,
+    delayValue = 0.5,
+    animatedTextElements = document.querySelectorAll(".text-anime-style-1");
+
+  animatedTextElements.forEach((element) => {
+    let animationSplitText = new SplitText(element, { type: "chars, words" });
+
+    gsap.from(animationSplitText.words, {
+      duration: 1,
+      delay: delayValue,
+      x: 20,
+      autoAlpha: 0,
+      stagger: staggerAmount,
+      scrollTrigger: { trigger: element, start: "top 85%" },
     });
-  }
+  });
+}
 
-  if ($(".text-anime-style-2").length) {
-    let staggerAmount = 0.03,
-      translateXValue = 20,
-      delayValue = 0.1,
-      easeType = "power2.out",
-      animatedTextElements = document.querySelectorAll(".text-anime-style-2");
+/* STOP CHAR ANIMATION IN RTL */
+if (!isRTL && $(".text-anime-style-2").length) {
+  let staggerAmount = 0.03,
+    translateXValue = 20,
+    delayValue = 0.1,
+    easeType = "power2.out",
+    animatedTextElements = document.querySelectorAll(".text-anime-style-2");
 
-    animatedTextElements.forEach((element) => {
-      let animationSplitText = new SplitText(element, { type: "chars, words" });
-      gsap.from(animationSplitText.chars, {
-        duration: 1,
-        delay: delayValue,
-        x: translateXValue,
-        autoAlpha: 0,
-        stagger: staggerAmount,
-        ease: easeType,
-        scrollTrigger: { trigger: element, start: "top 85%" },
-      });
+  animatedTextElements.forEach((element) => {
+    let animationSplitText = new SplitText(element, { type: "chars, words" });
+
+    gsap.from(animationSplitText.chars, {
+      duration: 1,
+      delay: delayValue,
+      x: translateXValue,
+      autoAlpha: 0,
+      stagger: staggerAmount,
+      ease: easeType,
+      scrollTrigger: { trigger: element, start: "top 85%" },
     });
-  }
+  });
+}
 
-  if ($(".text-anime-style-3").length) {
-    let animatedTextElements = document.querySelectorAll(".text-anime-style-3");
+if (!isRTL && $(".text-anime-style-3").length) {
+  let animatedTextElements = document.querySelectorAll(".text-anime-style-3");
 
-    animatedTextElements.forEach((element) => {
-      //Reset if needed
-      if (element.animation) {
-        element.animation.progress(1).kill();
-        element.split.revert();
-      }
+  animatedTextElements.forEach((element) => {
+    if (element.animation) {
+      element.animation.progress(1).kill();
+      element.split.revert();
+    }
 
-      element.split = new SplitText(element, {
-        type: "lines,words,chars",
-        linesClass: "split-line",
-      });
-      gsap.set(element, { perspective: 400 });
-
-      gsap.set(element.split.chars, {
-        opacity: 0,
-        x: "50",
-      });
-
-      element.animation = gsap.to(element.split.chars, {
-        scrollTrigger: { trigger: element, start: "top 90%" },
-        x: "0",
-        y: "0",
-        rotateX: "0",
-        opacity: 1,
-        duration: 1,
-        ease: Back.easeOut,
-        stagger: 0.02,
-      });
+    element.split = new SplitText(element, {
+      type: "lines,words,chars",
+      linesClass: "split-line",
     });
-  }
+
+    gsap.set(element, { perspective: 400 });
+
+    gsap.set(element.split.chars, {
+      opacity: 0,
+      x: "50",
+    });
+
+    element.animation = gsap.to(element.split.chars, {
+      scrollTrigger: { trigger: element, start: "top 90%" },
+      x: "0",
+      y: "0",
+      rotateX: "0",
+      opacity: 1,
+      duration: 1,
+      ease: Back.easeOut,
+      stagger: 0.02,
+    });
+  });
+}
 
   /* Parallaxie js */
   /* var $parallaxie = $('.parallaxie');
@@ -239,7 +243,7 @@
 	} */
 
   /* Zoom Gallery screenshot */
-  $(".gallery-Items").magnificPopup({
+  $(".gallery-items").magnificPopup({
     delegate: "a",
     type: "image",
     closeOnContentClick: false,
@@ -340,7 +344,7 @@
   }
   /* Appointment form validation end */
 
-  /* Our item (filtering) Start */
+  /* Our Project (filtering) Start */
   $window.on("load", function () {
     if ($(".project-item-boxes").length) {
       /* Init Isotope */
@@ -353,8 +357,8 @@
         },
       });
 
-      /* Filter Items on click */
-      var $menudisesnav = $(".our-item-nav li a");
+      /* Filter items on click */
+      var $menudisesnav = $(".our-Project-nav li a");
       $menudisesnav.on("click", function (e) {
         var filterValue = $(this).attr("data-filter");
         $menuitem.isotope({
@@ -368,7 +372,7 @@
       $menuitem.isotope({ filter: "*" });
     }
   });
-  /* Our item (filtering) End */
+  /* Our Project (filtering) End */
 
   /* Animated Wow Js */
   new WOW().init();
@@ -381,7 +385,7 @@
       removalDelay: 160,
       preloader: false,
       fixedContentPos: true,
-    });
+    });rt
   }
 
   /* Interactive Process Layout Start */

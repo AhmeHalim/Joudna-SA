@@ -39,7 +39,7 @@
 /************************************/
 /*** 	 01. Global Variables	  ***/
 /************************************/
-
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 :root {
   --primary-color: #ffffff;
   --main-color: #4b0129;
@@ -163,6 +163,9 @@ body {
   transform: translate(-50%, -50%) rotate(-45deg);
   z-index: 1;
 }
+[dir="rtl"] .image-anime:after {
+  transform: translate(50%, -50%) rotate(-45deg);
+}
 
 .image-anime:hover:after {
   height: 250%;
@@ -239,7 +242,7 @@ body {
   background: transparent;
   border: 1px solid var(--accent-secondary-color);
   color: var(--accent-secondary-color);
-  padding: 16px 30px;
+  padding: 13px 20px;
 }
 
 .btn-default.btn-highlighted:hover {
@@ -296,6 +299,9 @@ body {
   border-radius: 50%;
   transform: translate(-3px, -50%);
   transition: all 0.4s ease-in-out;
+}
+[dir="rtl"] .readmore-btn::before {
+  transform: translate(3px, -50%);
 }
 
 .readmore-btn:hover {
@@ -362,6 +368,9 @@ body {
   inset-inline-start: 50%;
   max-width: 300px;
   transform: translate(-50%, -50%);
+}
+[dir="rtl"] #loading-icon {
+  transform: translate(50%, -50%);
 }
 #loading-icon img {
   width: 300px;
@@ -479,7 +488,7 @@ body {
 
 .help-block.with-errors ul {
   margin: 0;
-  text-align: left;
+  text-align: start;
 }
 
 .help-block.with-errors ul li {
@@ -537,7 +546,7 @@ body {
 }
 
 .topbar-social-links {
-  text-align: right;
+  text-align: end;
 }
 
 .topbar-social-links ul {
@@ -616,7 +625,7 @@ header.main-header .header-sticky.active {
 }
 .main-menu .nav-menu-wrapper {
   flex: 1;
-  text-align: right;
+  text-align: end;
   margin: 0 60px;
 }
 
@@ -631,7 +640,7 @@ header.main-header .header-sticky.active {
 }
 
 .main-menu ul li.nav-item a {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.02em;
   line-height: normal;
@@ -651,8 +660,9 @@ header.main-header .header-sticky.active {
 }
 
 .main-menu ul li a:hover,
+.main-menu ul li a.active,
 .main-menu ul li a:focus {
-  color: var(--accent-color);
+  color: var(--accent-color) !important;
 }
 
 .main-menu ul ul {
@@ -673,7 +683,7 @@ header.main-header .header-sticky.active {
     var(--accent-color) 0%,
     var(--accent-secondary-color) 100%
   );
-  text-align: left;
+  text-align: start;
   transition: all 0.3s ease-in-out;
 }
 
@@ -684,7 +694,7 @@ header.main-header .header-sticky.active {
 .main-menu ul ul ul {
   inset-inline-start: 100%;
   top: 0;
-  text-align: left;
+  text-align: start;
 }
 .main-menu ul li:hover > ul {
   visibility: visible;
@@ -853,7 +863,12 @@ body:has(.offcanvas) {
 .header-sidebar-social-list ul li:hover i {
   color: var(--accent-color);
 }
-
+.lang-change {}
+.lang-change .btn-lang{
+    color: var(--accent-color);
+    font-weight: 600;
+    text-transform: uppercase;
+}
 .responsive-menu,
 .navbar-toggle {
   display: none;
@@ -3443,7 +3458,10 @@ body:has(.offcanvas) {
 }
 
 .page-menu-list .our-menu-list {
-  width: calc(50% - 15px);
+      width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 30px;
 }
 
 /************************************/
@@ -3747,7 +3765,7 @@ body:has(.offcanvas) {
 }
 
 .post-social-sharing {
-  text-align: right;
+  text-align: end;
 }
 
 .post-social-sharing ul {
@@ -4233,6 +4251,9 @@ body:has(.offcanvas) {
   transition: all 0.5s ease-in-out;
   z-index: 1;
 }
+[dir="rtl"] .video-gallery-image a::after {
+  transform: translate(50%, -50%);
+}
 
 .video-gallery-image:hover a::after {
   opacity: 1;
@@ -4309,6 +4330,9 @@ body:has(.offcanvas) {
   height: 80%;
   width: 1px;
   background-color: var(--divider-color);
+}
+[dir="rtl"] .contact-info-box-1 .contact-info-item::before {
+  transform: translate(-30px, -50%);
 }
 
 .contact-info-box-1 .contact-info-item:last-child:before,
@@ -4603,7 +4627,7 @@ body:has(.offcanvas) {
 .review-form {
   max-width: 500px;
   margin: auto;
-  text-align: left;
+  text-align: start;
 }
 
 .review-form input,
@@ -4633,6 +4657,58 @@ body:has(.offcanvas) {
   background: #4b2e2e;
 }
 /***************** Review *****************/
+.float-mail,
+.float-call,
+.float-whts,
+.back-to-top-icon{
+    position: fixed;
+    width: 36px;
+    padding: 7px;
+    height: 36px;
+    inset-inline-end: 4px;
+    background-color: var(--main-color);
+    color: #ffffff !important;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--main-color);
+    z-index: 999;
+}
+.back-to-top-icon{
+    bottom: 20px;
+}
+.float-whts {
+    bottom: 62px;
+}
+.float-call{
+    bottom: 104px;
+}
+.float-mail {
+    bottom: 146px;
+}
+/***************** rtl *****************/
+[dir="rtl"]:root{
+      --default-font: "Tajawal", serif;
+      --accent-font: "Tajawal", serif;
+}
+[dir="rtl"]{
+    
+    .text-start {
+        text-align: right!important;
+    }
+    
+    .text-end {
+        text-align: left !important
+    }
+    .breadcrumb-item+.breadcrumb-item::before {
+        float: right;
+        padding-left: var(--bs-breadcrumb-item-padding-x);
+    }
+}
+/***************** rtl *****************/
 /************************************/
 /***      32. Responsive css      ***/
 /************************************/
@@ -4724,7 +4800,7 @@ body:has(.offcanvas) {
   }
 
   .section-btn {
-    text-align: left;
+    text-align: start;
     margin-top: 15px;
   }
 
@@ -5551,7 +5627,7 @@ body:has(.offcanvas) {
   }
 
   .post-social-sharing ul {
-    text-align: left;
+    text-align: start;
   }
 
   .page-projects {
@@ -6358,6 +6434,9 @@ body:has(.offcanvas) {
     transform: translate(-50%, 20px);
     height: 1px;
     width: 100%;
+  }
+  [dir="rtl"] .contact-info-box-1 .contact-info-item::before {
+    transform: translate(50%, 20px);
   }
 
   .contact-info-box-1 .contact-info-item:nth-child(2n + 2):before {

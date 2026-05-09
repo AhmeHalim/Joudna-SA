@@ -39,7 +39,7 @@
 /************************************/
 /*** 	 01. Global Variables	  ***/
 /************************************/
-
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 :root {
   --primary-color: #ffffff;
   --main-color: #4b0129;
@@ -488,7 +488,7 @@ body {
 
 .help-block.with-errors ul {
   margin: 0;
-  text-align: left;
+  text-align: start;
 }
 
 .help-block.with-errors ul li {
@@ -546,7 +546,7 @@ body {
 }
 
 .topbar-social-links {
-  text-align: right;
+  text-align: end;
 }
 
 .topbar-social-links ul {
@@ -625,7 +625,7 @@ header.main-header .header-sticky.active {
 }
 .main-menu .nav-menu-wrapper {
   flex: 1;
-  text-align: right;
+  text-align: end;
   margin: 0 60px;
 }
 
@@ -683,7 +683,7 @@ header.main-header .header-sticky.active {
     var(--accent-color) 0%,
     var(--accent-secondary-color) 100%
   );
-  text-align: left;
+  text-align: start;
   transition: all 0.3s ease-in-out;
 }
 
@@ -694,7 +694,7 @@ header.main-header .header-sticky.active {
 .main-menu ul ul ul {
   inset-inline-start: 100%;
   top: 0;
-  text-align: left;
+  text-align: start;
 }
 .main-menu ul li:hover > ul {
   visibility: visible;
@@ -3762,7 +3762,7 @@ body:has(.offcanvas) {
 }
 
 .post-social-sharing {
-  text-align: right;
+  text-align: end;
 }
 
 .post-social-sharing ul {
@@ -4624,7 +4624,7 @@ body:has(.offcanvas) {
 .review-form {
   max-width: 500px;
   margin: auto;
-  text-align: left;
+  text-align: start;
 }
 
 .review-form input,
@@ -4654,6 +4654,56 @@ body:has(.offcanvas) {
   background: #4b2e2e;
 }
 /***************** Review *****************/
+.float-mail,
+.float-call,
+.float-whts,
+.back-to-top-icon{
+    position: fixed;
+    width: 36px;
+    padding: 7px;
+    height: 36px;
+    inset-inline-end: 4px;
+    background-color: var(--main-color);
+    color: #ffffff !important;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--main-color);
+    z-index: 999;
+}
+.back-to-top-icon{
+    bottom: 20px;
+}
+.float-whts {
+    bottom: 62px;
+}
+.float-call{
+    bottom: 104px;
+}
+.float-mail {
+    bottom: 146px;
+}
+/***************** rtl *****************/
+[dir="rtl"]{
+    body{
+          font-family: "Tajawal", sans-serif;
+    }
+    .text-start {
+    text-align: right!important;
+    }
+    
+    .text-end {
+        text-align: left !important
+    }
+    .breadcrumb-item+.breadcrumb-item::before {
+        float: right;
+        padding-left: var(--bs-breadcrumb-item-padding-x);
+    }
+}
+/***************** rtl *****************/
 /************************************/
 /***      32. Responsive css      ***/
 /************************************/
@@ -4745,7 +4795,7 @@ body:has(.offcanvas) {
   }
 
   .section-btn {
-    text-align: left;
+    text-align: start;
     margin-top: 15px;
   }
 
@@ -5572,7 +5622,7 @@ body:has(.offcanvas) {
   }
 
   .post-social-sharing ul {
-    text-align: left;
+    text-align: start;
   }
 
   .page-projects {
