@@ -64,7 +64,7 @@
                 <i class="ki-outline ki-pencil fs-7"></i>
                 <!--begin::Inputs-->
                 <input type="hidden" name="{{ $name }}_remove"/>
-                <input type="file" name="{{ $name }}" accept=".png, .jpg, .jpeg, .webp"/>
+                <input type="file" name="{{ $name }}" accept=".png, .jpg, .jpeg, .webp , .svg"/>
                 <!--end::Inputs-->
             </label>
             <!--end::Label-->
