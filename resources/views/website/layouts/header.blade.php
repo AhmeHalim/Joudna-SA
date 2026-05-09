@@ -37,19 +37,23 @@
                                 @elseif($headItem->types == 'gallery')
                                     <li class="nav-item submenu">
                                         <a class="nav-link" href="javascript:void(0)">@lang('home.gallery')</a>
+                                        @if ($headItem->subMenus->count() > 0)
                                         <ul>
-                                            @if ($headItem->types == 'gallery-images')
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="{{ $headItem->custom_link }}">{{ $headItem->name }}</a>
-                                                </li>
-                                            @endif
+                                            @foreach ($headItem->subMenus as $subMenu)
+                                                @if ($subMenu->types == 'gallery-images')
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="{{ $subMenu->custom_link }}">{{ $subMenu->name }}</a>
+                                                    </li>
+                                                @endif
 
-                                            @if ($headItem->types == 'gallery-videos')
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="{{ $headItem->custom_link }}">{{ $headItem->name }}</a>
-                                                </li>
-                                            @endif
+                                                @if ($subMenu->types == 'gallery-videos')
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="{{ $subMenu->custom_link }}">{{ $subMenu->name }}</a>
+                                                    </li>
+                                                @endif
+                                            @endforeach
                                         </ul>
+                                        @endif
                                     </li>
                                 @else
                                     {{-- Fallback for any other custom link Items --}}
