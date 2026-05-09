@@ -11,9 +11,6 @@
         ]
     ])
 
-
-
-
     <!-- Photo Gallery Section Start -->
     <div class="page-gallery">
         <div class="container">
