@@ -123,5 +123,8 @@ return [
     'book_tables' => 'حجوزات الطاولات',
     'book_table_call_us' => 'طلب حجز',
     'book_table_or_form' => 'أو املأ نموذج الطلب',
+    'home_page'=>'الرئيسية',
+    'gallery_images'=>'معرض الصور',
+    'gallery_videos'=>'معرض الفيديوهات',
 
 ];

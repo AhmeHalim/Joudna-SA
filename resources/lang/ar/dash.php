@@ -2401,6 +2401,11 @@
         'View All' => 'عرض الكل',
         'No blogs found' => 'لا توجد مدونات',
         'No messages found' => 'لا توجد رسائل',
+       'item'=>'صنف',
+       'items'=>'أصناف',
+       'add_item'=>'أضافة صنف',
+       'edit_item'=>'تعديل صنف',
+       'recommended'=>'يوصي به',
 
     ];
 

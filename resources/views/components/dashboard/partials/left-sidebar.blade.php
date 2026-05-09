@@ -47,6 +47,36 @@
                 <!--end:contactUs Menu item-->
             @endcan
 
+            @can('book-tables.read')
+                <!--begin:items Menu item-->
+                <div data-kt-menu-trigger="click"
+                     class="menu-item {{ in_array(request()->segment(3), ['book-tables']) ? 'here show' : '' }} menu-accordion">
+                    <!--begin:Menu link-->
+                    <a href="{{ route('book-tables.index') }}" class="menu-link"><span class="menu-icon"><i
+                                class="ki-outline primary-color ki-note  fs-2"></i></span>
+                        <span class="menu-title">{{ __('dash.book_tables') }}</span>
+                        <span class="menu-arrow d-none"></span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <!--end:items item-->
+            @endcan
+
+            @can('feedbacks.read')
+                <!--begin:items Menu item-->
+                <div data-kt-menu-trigger="click"
+                     class="menu-item {{ in_array(request()->segment(3), ['feedbacks']) ? 'here show' : '' }} menu-accordion">
+                    <!--begin:Menu link-->
+                    <a href="{{ route('feedbacks.index') }}" class="menu-link"><span class="menu-icon"><i
+                                class="ki-outline primary-color ki-star  fs-2"></i></span>
+                        <span class="menu-title">{{ __('dash.feedbacks') }}</span>
+                        <span class="menu-arrow d-none"></span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <!--end:items item-->
+            @endcan
+
             @canany(['menus.read', 'about_us.read', 'about_values.read', 'albums.read', 'blogs.read',
                 'blog_categories.read', 'blogs.read', 'categories.read', 'items.read', 'sliders.read', 'pages.read',
                 'clients.read', 'testimonials.read'])
@@ -294,6 +324,8 @@
                 </div>
                 <!--end:items item-->
             @endcan
+
+
 
             @can('blogs.read')
                 <!--begin:blogs Menu item-->
