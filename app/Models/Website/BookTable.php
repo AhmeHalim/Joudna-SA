@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class BookTable extends Model
 {
-    protected $table = 'Book_tables';
+    protected $table = 'book_tables';
     protected $guarded = [];
 }
